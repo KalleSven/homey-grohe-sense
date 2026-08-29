@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Grohe Ondus Login</title>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      padding: 15px;
+      color: #333;
+      margin: 0;
+      box-sizing: border-box;
+    }
+    h2 {
+      margin-top: 0;
+      color: #0066b2;
+      font-size: 1.3em;
+    }
+    .intro {
+      font-size: 0.9em;
+      line-height: 1.4;
+      margin-bottom: 15px;
+    }
+    .instructions {
+      background-color: #f2f7fb;
+      border: 1px solid #d0e3f0;
+      border-radius: 8px;
+      padding: 12px;
+      margin-bottom: 15px;
+      font-size: 0.85em;
+      line-height: 1.4;
+    }
+    .instructions ol {
+      margin: 6px 0 6px 18px;
+      padding: 0;
+    }
+    .instructions li {
+      margin-bottom: 4px;
+    }
+    .instructions a {
+      color: #0066b2;
+      word-break: break-all;
+    }
+    .form-group {
+      margin-bottom: 15px;
+    }
+    label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 5px;
+      font-size: 0.9em;
+    }
+    input[type="text"], textarea {
+      width: 100%;
+      box-sizing: border-box;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 0.95em;
+      font-family: monospace;
+    }
+    textarea {
+      height: 85px;
+      resize: vertical;
+    }
+    .btn {
+      background-color: #0066b2;
+      color: #fff;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 6px;
+      font-size: 1em;
+      font-weight: 600;
+      cursor: pointer;
+      width: 100%;
+      box-sizing: border-box;
+    }
+    .btn:hover {
+      background-color: #004d87;
+    }
+    .btn:disabled {
+      background-color: #99c2e0;
+      cursor: not-allowed;
+    }
+    .error-box {
+      display: none;
+      background-color: #ffebee;
+      color: #c62828;
+      border: 1px solid #ffcdd2;
+      border-radius: 6px;
+      padding: 10px;
+      margin-top: 12px;
+      font-size: 0.9em;
+    }
+    .spinner {
+      display: none;
+      text-align: center;
+      margin-top: 10px;
+      font-size: 0.9em;
+      color: #666;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Grohe Ondus Login</h2>
+  <div class="intro">
+    Enter your Grohe Ondus <strong>Refresh Token</strong> to connect your Grohe Sense Guard.
+  </div>
+
+  <div class="instructions">
+    <strong>How to get your Refresh Token:</strong>
+    <ol>
+      <li>Open your browser and developer tools (<kbd>F12</kbd> &rarr; <em>Network</em> tab).</li>
+      <li>Visit: <a href="https://idp2-apigw.cloud.grohe.com/v3/iot/oidc/login" target="_blank">idp2-apigw.cloud.grohe.com/v3/iot/oidc/login</a></li>
+      <li>Log in to your GROHE account.</li>
+      <li>Look in the network tab for the failed request starting with <code>ondus://.../token?...</code>.</li>
+      <li>Open a new browser tab, paste that URL and replace <code>ondus://</code> with <code>https://</code>.</li>
+      <li>Copy the value inside <code>"refresh_token": "..."</code> and paste it below.</li>
+    </ol>
+  </div>
+
+  <form id="login-form">
+    <div class="form-group">
+      <label for="refresh-token">Refresh Token</label>
+      <textarea id="refresh-token" placeholder="Paste your refresh_token here..." required></textarea>
+    </div>
+
+    <button type="submit" id="submit-btn" class="btn">Connect to Grohe Cloud</button>
+  </form>
+
+  <div id="spinner" class="spinner">Authenticating with Grohe Cloud...</div>
+  <div id="error-message" class="error-box"></div>
+
+  <script type="text/javascript">
+    Homey.ready();
+
+    var form = document.getElementById('login-form');
+    var refreshTokenInput = document.getElementById('refresh-token');
+    var submitBtn = document.getElementById('submit-btn');
+    var errorBox = document.getElementById('error-message');
+    var spinner = document.getElementById('spinner');
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      var token = refreshTokenInput.value.trim();
+      if (!token) {
+        showError('Please paste your Grohe refresh token.');
+        return;
+      }
+
+      submitBtn.disabled = true;
+      spinner.style.display = 'block';
+      errorBox.style.display = 'none';
+
+      Homey.emit('login', { refreshToken: token })
+        .then(function(result) {
+          spinner.style.display = 'none';
+          Homey.nextView();
+        })
+        .catch(function(err) {
+          submitBtn.disabled = false;
+          spinner.style.display = 'none';
+          showError(err && err.message ? err.message : (typeof err === 'string' ? err : 'Authentication failed. Please check your token.'));
+        });
+    });
+
+    function showError(msg) {
+      errorBox.textContent = msg;
+      errorBox.style.display = 'block';
+    }
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,18 @@
+{
+  "type": "boolean",
+  "title": {
+    "en": "Micro Leak Alarm",
+    "sv": "Mikroläckagelarm"
+  },
+  "getable": true,
+  "setable": false,
+  "insights": true,
+  "insightsTitleTrue": {
+    "en": "Micro leak detected",
+    "sv": "Mikroläckage upptäckt"
+  },
+  "insightsTitleFalse": {
+    "en": "No micro leak",
+    "sv": "Inget mikroläckage"
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "title": {
+    "en": "Water pressure is !{{higher|lower}} than",
+    "sv": "Vattentrycket är !{{högre|lägre}} än"
+  },
+  "titleFormatted": {
+    "en": "Water pressure is !{{higher|lower}} than [[pressure]] bar",
+    "sv": "Vattentrycket är !{{högre|lägre}} än [[pressure]] bar"
+  },
+  "args": [
+    {
+      "name": "device",
+      "type": "device",
+      "filter": "driver_id=grohe_sense_guard"
+    },
+    {
+      "name": "pressure",
+      "type": "number",
+      "title": {
+        "en": "Pressure (bar)",
+        "sv": "Tryck (bar)"
+      },
+      "min": 0,
+      "max": 10,
+      "step": 0.1,
+      "placeholder": "3.5"
+    }
+  ]
+}

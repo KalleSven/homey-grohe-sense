@@ -1,0 +1,18 @@
+{
+  "type": "boolean",
+  "title": {
+    "en": "Frost Warning",
+    "sv": "Frostvarning"
+  },
+  "getable": true,
+  "setable": false,
+  "insights": true,
+  "insightsTitleTrue": {
+    "en": "Frost warning active",
+    "sv": "Frostvarning aktiv"
+  },
+  "insightsTitleFalse": {
+    "en": "No frost warning",
+    "sv": "Ingen frostvarning"
+  }
+}

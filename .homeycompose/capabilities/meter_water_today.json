@@ -1,0 +1,20 @@
+{
+  "type": "number",
+  "title": {
+    "en": "Water Today",
+    "sv": "Vattenförbrukning idag"
+  },
+  "units": {
+    "en": "l",
+    "sv": "l"
+  },
+  "decimals": 1,
+  "min": 0,
+  "getable": true,
+  "setable": false,
+  "insights": true,
+  "insightsTitleTrue": {
+    "en": "Water Today",
+    "sv": "Vattenförbrukning idag"
+  }
+}

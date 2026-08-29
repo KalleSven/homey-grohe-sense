@@ -1,0 +1,554 @@
+{
+  "_comment": "This file is generated. Please edit .homeycompose/app.json instead.",
+  "id": "net.lindbom.grohe",
+  "version": "1.0.0",
+  "compatibility": ">=10.0.0",
+  "sdk": 3,
+  "platforms": [
+    "local"
+  ],
+  "name": {
+    "en": "Grohe Sense",
+    "sv": "Grohe Sense"
+  },
+  "description": {
+    "en": "Control and monitor Grohe Sense Guard water security system.",
+    "sv": "Styr och övervaka din Grohe Sense Guard vattenfelsbrytare."
+  },
+  "category": [
+    "security",
+    "appliances"
+  ],
+  "brandColor": "#0066B2",
+  "author": {
+    "name": "Johan Lindbom"
+  },
+  "support": "https://github.com/johanlindbom/homey-grohe-sense/issues",
+  "source": "https://github.com/johanlindbom/homey-grohe-sense",
+  "images": {
+    "large": "assets/images/large.png",
+    "small": "assets/images/small.png"
+  },
+  "flow": {
+    "triggers": [
+      {
+        "title": {
+          "en": "Frost warning triggered",
+          "sv": "Frostvarning utlöst"
+        },
+        "tokens": [
+          {
+            "name": "temperature",
+            "type": "number",
+            "title": {
+              "en": "Temperature (°C)",
+              "sv": "Temperatur (°C)"
+            },
+            "example": 2.5
+          }
+        ],
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=grohe_sense_guard"
+          }
+        ],
+        "id": "alarm_frost_triggered"
+      },
+      {
+        "title": {
+          "en": "Micro leak detected",
+          "sv": "Mikroläckage upptäckt"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=grohe_sense_guard"
+          }
+        ],
+        "id": "alarm_micro_leak_triggered"
+      },
+      {
+        "title": {
+          "en": "Water leak alarm cleared",
+          "sv": "Vattenläckagelarm återställt"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=grohe_sense_guard"
+          }
+        ],
+        "id": "alarm_water_cleared"
+      },
+      {
+        "title": {
+          "en": "Water leak detected",
+          "sv": "Ett vattenläckage detekterades"
+        },
+        "tokens": [
+          {
+            "name": "alarm_type",
+            "type": "string",
+            "title": {
+              "en": "Alarm Type",
+              "sv": "Larmtyp"
+            },
+            "example": "Pipe break"
+          },
+          {
+            "name": "description",
+            "type": "string",
+            "title": {
+              "en": "Description",
+              "sv": "Beskrivning"
+            },
+            "example": "Pipe break - water has been SHUT OFF"
+          }
+        ],
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=grohe_sense_guard"
+          }
+        ],
+        "id": "alarm_water_triggered"
+      },
+      {
+        "title": {
+          "en": "Water consumption today changed",
+          "sv": "Dagens vattenförbrukning ändrades"
+        },
+        "tokens": [
+          {
+            "name": "water_today",
+            "type": "number",
+            "title": {
+              "en": "Water Today (l)",
+              "sv": "Vattenförbrukning idag (l)"
+            },
+            "example": 142.5
+          }
+        ],
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=grohe_sense_guard"
+          }
+        ],
+        "id": "consumption_today_changed"
+      },
+      {
+        "title": {
+          "en": "Water pressure changed",
+          "sv": "Vattentrycket ändrades"
+        },
+        "tokens": [
+          {
+            "name": "pressure",
+            "type": "number",
+            "title": {
+              "en": "Pressure (bar)",
+              "sv": "Tryck (bar)"
+            },
+            "example": 3.4
+          }
+        ],
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=grohe_sense_guard"
+          }
+        ],
+        "id": "pressure_changed"
+      },
+      {
+        "title": {
+          "en": "Valve was closed",
+          "sv": "Vattenventilen stängdes"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=grohe_sense_guard"
+          }
+        ],
+        "id": "valve_closed"
+      },
+      {
+        "title": {
+          "en": "Valve was opened",
+          "sv": "Vattenventilen öppnades"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=grohe_sense_guard"
+          }
+        ],
+        "id": "valve_opened"
+      }
+    ],
+    "conditions": [
+      {
+        "title": {
+          "en": "Frost warning is !{{active|not active}}",
+          "sv": "Frostvarning är !{{aktiv|inte aktiv}}"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=grohe_sense_guard"
+          }
+        ],
+        "id": "is_alarm_frost"
+      },
+      {
+        "title": {
+          "en": "Micro leak alarm is !{{active|not active}}",
+          "sv": "Mikroläckagelarm är !{{aktivt|inte aktivt}}"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=grohe_sense_guard"
+          }
+        ],
+        "id": "is_alarm_micro_leak"
+      },
+      {
+        "title": {
+          "en": "Water leak alarm is !{{active|not active}}",
+          "sv": "Vattenläckagelarm är !{{aktivt|inte aktivt}}"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=grohe_sense_guard"
+          }
+        ],
+        "id": "is_alarm_water"
+      },
+      {
+        "title": {
+          "en": "Water pressure is !{{higher|lower}} than",
+          "sv": "Vattentrycket är !{{högre|lägre}} än"
+        },
+        "titleFormatted": {
+          "en": "Water pressure is !{{higher|lower}} than [[pressure]] bar",
+          "sv": "Vattentrycket är !{{högre|lägre}} än [[pressure]] bar"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=grohe_sense_guard"
+          },
+          {
+            "name": "pressure",
+            "type": "number",
+            "title": {
+              "en": "Pressure (bar)",
+              "sv": "Tryck (bar)"
+            },
+            "min": 0,
+            "max": 10,
+            "step": 0.1,
+            "placeholder": "3.5"
+          }
+        ],
+        "id": "is_pressure_above"
+      },
+      {
+        "title": {
+          "en": "Valve is !{{open|closed}}",
+          "sv": "Ventilen är !{{öppen|stängd}}"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=grohe_sense_guard"
+          }
+        ],
+        "id": "is_valve_open"
+      }
+    ],
+    "actions": [
+      {
+        "title": {
+          "en": "Close water valve",
+          "sv": "Stäng vattenventilen"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=grohe_sense_guard"
+          }
+        ],
+        "id": "close_valve"
+      },
+      {
+        "title": {
+          "en": "Open water valve",
+          "sv": "Öppna vattenventilen"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=grohe_sense_guard"
+          }
+        ],
+        "id": "open_valve"
+      },
+      {
+        "title": {
+          "en": "Refresh data from Grohe Cloud",
+          "sv": "Uppdatera data från Grohe Cloud"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=grohe_sense_guard"
+          }
+        ],
+        "id": "refresh_data"
+      },
+      {
+        "title": {
+          "en": "Toggle water valve",
+          "sv": "Växla vattenventil"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=grohe_sense_guard"
+          }
+        ],
+        "id": "toggle_valve"
+      }
+    ]
+  },
+  "drivers": [
+    {
+      "name": {
+        "en": "Grohe Sense Guard",
+        "sv": "Grohe Sense Guard"
+      },
+      "class": "sensor",
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "cloud"
+      ],
+      "capabilities": [
+        "onoff",
+        "alarm_water",
+        "alarm_micro_leak",
+        "alarm_frost",
+        "measure_pressure",
+        "measure_temperature",
+        "measure_water_flow",
+        "meter_water",
+        "meter_water_today"
+      ],
+      "capabilitiesOptions": {
+        "onoff": {
+          "title": {
+            "en": "Water Valve",
+            "sv": "Vattenventil"
+          },
+          "insightsTitleTrue": {
+            "en": "Valve open",
+            "sv": "Ventil öppen"
+          },
+          "insightsTitleFalse": {
+            "en": "Valve closed",
+            "sv": "Ventil stängd"
+          }
+        },
+        "alarm_water": {
+          "title": {
+            "en": "Water Leak Alarm",
+            "sv": "Vattenläckagelarm"
+          }
+        },
+        "measure_pressure": {
+          "title": {
+            "en": "Water Pressure",
+            "sv": "Vattentryck"
+          },
+          "units": {
+            "en": "bar",
+            "sv": "bar"
+          },
+          "decimals": 2
+        },
+        "measure_temperature": {
+          "title": {
+            "en": "Water Temperature",
+            "sv": "Vattentemperatur"
+          }
+        },
+        "meter_water": {
+          "title": {
+            "en": "Total Consumption",
+            "sv": "Total förbrukning"
+          },
+          "units": {
+            "en": "l",
+            "sv": "l"
+          },
+          "decimals": 0
+        }
+      },
+      "images": {
+        "large": "drivers/grohe_sense_guard/assets/images/large.png",
+        "small": "drivers/grohe_sense_guard/assets/images/small.png"
+      },
+      "pair": [
+        {
+          "id": "login"
+        },
+        {
+          "id": "list_devices",
+          "template": "list_devices",
+          "navigation": {
+            "next": "add_devices"
+          }
+        },
+        {
+          "id": "add_devices",
+          "template": "add_devices"
+        }
+      ],
+      "settings": [
+        {
+          "id": "poll_interval",
+          "type": "number",
+          "label": {
+            "en": "Status Poll Interval (seconds)",
+            "sv": "Uppdateringsintervall status (sekunder)"
+          },
+          "hint": {
+            "en": "How often to poll valve status and alarms from Grohe Cloud (min: 30, default: 60)",
+            "sv": "Hur ofta ventilstatus och larm ska hämtas från Grohe Cloud (min: 30, standard: 60)"
+          },
+          "value": 60,
+          "min": 30,
+          "max": 3600
+        },
+        {
+          "id": "measurements_poll_interval",
+          "type": "number",
+          "label": {
+            "en": "Measurements Poll Interval (seconds)",
+            "sv": "Uppdateringsintervall mätvärden (sekunder)"
+          },
+          "hint": {
+            "en": "How often to poll pressure, temperature and consumption data (min: 60, default: 300)",
+            "sv": "Hur ofta tryck, temperatur och förbrukningsdata ska hämtas (min: 60, standard: 300)"
+          },
+          "value": 300,
+          "min": 60,
+          "max": 3600
+        }
+      ],
+      "id": "grohe_sense_guard"
+    }
+  ],
+  "capabilities": {
+    "alarm_frost": {
+      "type": "boolean",
+      "title": {
+        "en": "Frost Warning",
+        "sv": "Frostvarning"
+      },
+      "getable": true,
+      "setable": false,
+      "insights": true,
+      "insightsTitleTrue": {
+        "en": "Frost warning active",
+        "sv": "Frostvarning aktiv"
+      },
+      "insightsTitleFalse": {
+        "en": "No frost warning",
+        "sv": "Ingen frostvarning"
+      }
+    },
+    "alarm_micro_leak": {
+      "type": "boolean",
+      "title": {
+        "en": "Micro Leak Alarm",
+        "sv": "Mikroläckagelarm"
+      },
+      "getable": true,
+      "setable": false,
+      "insights": true,
+      "insightsTitleTrue": {
+        "en": "Micro leak detected",
+        "sv": "Mikroläckage upptäckt"
+      },
+      "insightsTitleFalse": {
+        "en": "No micro leak",
+        "sv": "Inget mikroläckage"
+      }
+    },
+    "measure_water_flow": {
+      "type": "number",
+      "title": {
+        "en": "Water Flow",
+        "sv": "Vattenflöde"
+      },
+      "units": {
+        "en": "l/min",
+        "sv": "l/min"
+      },
+      "decimals": 2,
+      "min": 0,
+      "getable": true,
+      "setable": false,
+      "insights": true,
+      "insightsTitleTrue": {
+        "en": "Water Flow",
+        "sv": "Vattenflöde"
+      }
+    },
+    "meter_water_today": {
+      "type": "number",
+      "title": {
+        "en": "Water Today",
+        "sv": "Vattenförbrukning idag"
+      },
+      "units": {
+        "en": "l",
+        "sv": "l"
+      },
+      "decimals": 1,
+      "min": 0,
+      "getable": true,
+      "setable": false,
+      "insights": true,
+      "insightsTitleTrue": {
+        "en": "Water Today",
+        "sv": "Vattenförbrukning idag"
+      }
+    }
+  }
+}

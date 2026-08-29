@@ -1,0 +1,74 @@
+'use strict';
+
+const Homey = require('homey');
+const GroheAuth = require('../../lib/GroheAuth');
+const GroheApi = require('../../lib/GroheApi');
+
+class GroheSenseGuardDriver extends Homey.Driver {
+  /**
+   * onInit is called when the driver is initialized.
+   */
+  async onInit() {
+    this.log('GroheSenseGuardDriver initialized');
+  }
+
+  /**
+   * onPair is called when a user starts the pairing process.
+   */
+  async onPair(session) {
+    let pairingToken = null;
+    let auth = null;
+    let api = null;
+
+    session.setHandler('login', async (data) => {
+      this.log('Pairing: login requested');
+      if (!data || !data.refreshToken) {
+        throw new Error('Refresh token is required.');
+      }
+
+      pairingToken = data.refreshToken.trim();
+      auth = new GroheAuth(this);
+      auth.setRefreshToken(pairingToken);
+
+      // Verify token with Grohe Cloud
+      await auth.refresh();
+      api = new GroheApi(auth, this);
+
+      return true;
+    });
+
+    session.setHandler('list_devices', async () => {
+      this.log('Pairing: list_devices requested');
+      if (!api) {
+        throw new Error('Session not authenticated.');
+      }
+
+      const senseGuards = await api.getAllSenseGuards();
+      this.log(`Found ${senseGuards.length} Grohe Sense Guard device(s)`);
+
+      return senseGuards.map((device) => {
+        return {
+          name: device.name ? `${device.name} (${device.roomName})` : `Sense Guard (${device.roomName})`,
+          data: {
+            id: device.applianceId,
+            locationId: device.locationId,
+            roomId: device.roomId,
+            applianceId: device.applianceId,
+          },
+          store: {
+            refreshToken: auth.getRefreshToken(),
+            serialNumber: device.serialNumber,
+            version: device.version,
+            registrationDate: device.registrationDate,
+          },
+          settings: {
+            poll_interval: 60,
+            measurements_poll_interval: 300,
+          },
+        };
+      });
+    });
+  }
+}
+
+module.exports = GroheSenseGuardDriver;

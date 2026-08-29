@@ -1,0 +1,13 @@
+{
+  "title": {
+    "en": "Frost warning is !{{active|not active}}",
+    "sv": "Frostvarning är !{{aktiv|inte aktiv}}"
+  },
+  "args": [
+    {
+      "name": "device",
+      "type": "device",
+      "filter": "driver_id=grohe_sense_guard"
+    }
+  ]
+}

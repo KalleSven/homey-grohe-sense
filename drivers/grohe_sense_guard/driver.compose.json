@@ -1,0 +1,126 @@
+{
+  "name": {
+    "en": "Grohe Sense Guard",
+    "sv": "Grohe Sense Guard"
+  },
+  "class": "sensor",
+  "platforms": [
+    "local"
+  ],
+  "connectivity": [
+    "cloud"
+  ],
+  "capabilities": [
+    "onoff",
+    "alarm_water",
+    "alarm_micro_leak",
+    "alarm_frost",
+    "measure_pressure",
+    "measure_temperature",
+    "measure_water_flow",
+    "meter_water",
+    "meter_water_today"
+  ],
+  "capabilitiesOptions": {
+    "onoff": {
+      "title": {
+        "en": "Water Valve",
+        "sv": "Vattenventil"
+      },
+      "insightsTitleTrue": {
+        "en": "Valve open",
+        "sv": "Ventil öppen"
+      },
+      "insightsTitleFalse": {
+        "en": "Valve closed",
+        "sv": "Ventil stängd"
+      }
+    },
+    "alarm_water": {
+      "title": {
+        "en": "Water Leak Alarm",
+        "sv": "Vattenläckagelarm"
+      }
+    },
+    "measure_pressure": {
+      "title": {
+        "en": "Water Pressure",
+        "sv": "Vattentryck"
+      },
+      "units": {
+        "en": "bar",
+        "sv": "bar"
+      },
+      "decimals": 2
+    },
+    "measure_temperature": {
+      "title": {
+        "en": "Water Temperature",
+        "sv": "Vattentemperatur"
+      }
+    },
+    "meter_water": {
+      "title": {
+        "en": "Total Consumption",
+        "sv": "Total förbrukning"
+      },
+      "units": {
+        "en": "l",
+        "sv": "l"
+      },
+      "decimals": 0
+    }
+  },
+  "images": {
+    "large": "drivers/grohe_sense_guard/assets/images/large.png",
+    "small": "drivers/grohe_sense_guard/assets/images/small.png"
+  },
+  "pair": [
+    {
+      "id": "login"
+    },
+    {
+      "id": "list_devices",
+      "template": "list_devices",
+      "navigation": {
+        "next": "add_devices"
+      }
+    },
+    {
+      "id": "add_devices",
+      "template": "add_devices"
+    }
+  ],
+  "settings": [
+    {
+      "id": "poll_interval",
+      "type": "number",
+      "label": {
+        "en": "Status Poll Interval (seconds)",
+        "sv": "Uppdateringsintervall status (sekunder)"
+      },
+      "hint": {
+        "en": "How often to poll valve status and alarms from Grohe Cloud (min: 30, default: 60)",
+        "sv": "Hur ofta ventilstatus och larm ska hämtas från Grohe Cloud (min: 30, standard: 60)"
+      },
+      "value": 60,
+      "min": 30,
+      "max": 3600
+    },
+    {
+      "id": "measurements_poll_interval",
+      "type": "number",
+      "label": {
+        "en": "Measurements Poll Interval (seconds)",
+        "sv": "Uppdateringsintervall mätvärden (sekunder)"
+      },
+      "hint": {
+        "en": "How often to poll pressure, temperature and consumption data (min: 60, default: 300)",
+        "sv": "Hur ofta tryck, temperatur och förbrukningsdata ska hämtas (min: 60, standard: 300)"
+      },
+      "value": 300,
+      "min": 60,
+      "max": 3600
+    }
+  ]
+}

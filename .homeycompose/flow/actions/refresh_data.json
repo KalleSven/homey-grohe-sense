@@ -1,0 +1,13 @@
+{
+  "title": {
+    "en": "Refresh data from Grohe Cloud",
+    "sv": "Uppdatera data från Grohe Cloud"
+  },
+  "args": [
+    {
+      "name": "device",
+      "type": "device",
+      "filter": "driver_id=grohe_sense_guard"
+    }
+  ]
+}

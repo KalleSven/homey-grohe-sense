@@ -1,0 +1,20 @@
+{
+  "type": "number",
+  "title": {
+    "en": "Water Flow",
+    "sv": "Vattenflöde"
+  },
+  "units": {
+    "en": "l/min",
+    "sv": "l/min"
+  },
+  "decimals": 2,
+  "min": 0,
+  "getable": true,
+  "setable": false,
+  "insights": true,
+  "insightsTitleTrue": {
+    "en": "Water Flow",
+    "sv": "Vattenflöde"
+  }
+}

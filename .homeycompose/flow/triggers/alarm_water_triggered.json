@@ -1,0 +1,33 @@
+{
+  "title": {
+    "en": "Water leak detected",
+    "sv": "Ett vattenläckage detekterades"
+  },
+  "tokens": [
+    {
+      "name": "alarm_type",
+      "type": "string",
+      "title": {
+        "en": "Alarm Type",
+        "sv": "Larmtyp"
+      },
+      "example": "Pipe break"
+    },
+    {
+      "name": "description",
+      "type": "string",
+      "title": {
+        "en": "Description",
+        "sv": "Beskrivning"
+      },
+      "example": "Pipe break - water has been SHUT OFF"
+    }
+  ],
+  "args": [
+    {
+      "name": "device",
+      "type": "device",
+      "filter": "driver_id=grohe_sense_guard"
+    }
+  ]
+}

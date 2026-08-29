@@ -1,0 +1,31 @@
+{
+  "id": "net.lindbom.grohe",
+  "version": "1.0.0",
+  "compatibility": ">=10.0.0",
+  "sdk": 3,
+  "platforms": [
+    "local"
+  ],
+  "name": {
+    "en": "Grohe Sense",
+    "sv": "Grohe Sense"
+  },
+  "description": {
+    "en": "Control and monitor Grohe Sense Guard water security system.",
+    "sv": "Styr och övervaka din Grohe Sense Guard vattenfelsbrytare."
+  },
+  "category": [
+    "security",
+    "appliances"
+  ],
+  "brandColor": "#0066B2",
+  "author": {
+    "name": "Johan Lindbom"
+  },
+  "support": "https://github.com/johanlindbom/homey-grohe-sense/issues",
+  "source": "https://github.com/johanlindbom/homey-grohe-sense",
+  "images": {
+    "large": "assets/images/large.png",
+    "small": "assets/images/small.png"
+  }
+}
