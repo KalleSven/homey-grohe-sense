@@ -4,12 +4,12 @@ const Homey = require('homey');
 const GroheAuth = require('../../lib/GroheAuth');
 const GroheApi = require('../../lib/GroheApi');
 
-class GroheSenseGuardDriver extends Homey.Driver {
+class GroheSenseDriver extends Homey.Driver {
   /**
    * onInit is called when the driver is initialized.
    */
   async onInit() {
-    this.log('GroheSenseGuardDriver initialized');
+    this.log('GroheSenseDriver initialized');
   }
 
   /**
@@ -56,12 +56,12 @@ class GroheSenseGuardDriver extends Homey.Driver {
         throw new Error('Session not authenticated.');
       }
 
-      const senseGuards = await api.getAllSenseGuards();
-      this.log(`Found ${senseGuards.length} Grohe Sense Guard device(s)`);
+      const senseSensors = await api.getAllSenseSensors();
+      this.log(`Found ${senseSensors.length} Grohe Sense device(s)`);
 
-      return senseGuards.map((device) => {
+      return senseSensors.map((device) => {
         return {
-          name: device.name ? `${device.name} (${device.roomName})` : `Sense Guard (${device.roomName})`,
+          name: device.name ? `${device.name} (${device.roomName})` : `Grohe Sense (${device.roomName})`,
           data: {
             id: device.applianceId,
             locationId: device.locationId,
@@ -73,10 +73,10 @@ class GroheSenseGuardDriver extends Homey.Driver {
             serialNumber: device.serialNumber,
             version: device.version,
             registrationDate: device.registrationDate,
+            deviceType: device.type,
           },
           settings: {
-            poll_interval: 60,
-            measurements_poll_interval: 300,
+            poll_interval: 900,
           },
         };
       });
@@ -84,4 +84,4 @@ class GroheSenseGuardDriver extends Homey.Driver {
   }
 }
 
-module.exports = GroheSenseGuardDriver;
+module.exports = GroheSenseDriver;

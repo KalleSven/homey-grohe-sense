@@ -1,25 +1,18 @@
-Control and monitor your Grohe Sense Guard water security system from Homey Pro.
+Control and monitor your Grohe Sense and Grohe Sense Guard devices from Homey Pro.
 
-Protect your home from water damage by integrating your Grohe Sense Guard smart water controller with Homey. Monitor water consumption, detect leaks early, track water pressure and temperature, and automatically shut off the main water valve in emergency scenarios using Homey Flows.
+Protect your home from water damage by integrating your Grohe Sense water sensors and Grohe Sense Guard smart water controller with Homey. Monitor temperature and humidity, detect water leaks instantly, track water pressure, consumption, and automatically shut off the main water valve in emergency scenarios using Homey Flows.
 
 FEATURES
-• Valve Control: Open and close your main water valve from Homey and Flows.
-• Water Leak Alarm: Instant detection of pipe breaks, flooding, unusual water consumption, and micro-leakages.
-• Water Pressure & Flow: Real-time logging of water pressure (bar) and water flow rate (l/min) with Homey Insights.
-• Temperature & Frost Warning: Water temperature monitoring (°C) and freeze protection warnings.
-• Water Consumption: Track daily water consumption (l) and cumulative total consumption (l).
+• Grohe Sense: Water leak detection, ambient temperature (°C), relative humidity (%), battery monitoring, and frost warning.
+• Grohe Sense Guard: Open/close main water valve, water leak detection, micro leak alarm, water pressure (bar), flow rate (l/min), temperature, and consumption tracking.
 • Flow Cards: Complete set of triggers (When), conditions (And), and actions (Then) to automate your smart home water security.
 
 HOW TO SETUP
-1. In the Homey app, tap Devices → + → Grohe Sense → Grohe Sense Guard.
-2. Follow the on-screen instructions to enter your Grohe Ondus Refresh Token:
-   a. In your desktop browser, open developer tools (F12 → Network tab).
-   b. Navigate to: https://idp2-apigw.cloud.grohe.com/v3/iot/oidc/login
-   c. Log in to your GROHE Ondus account.
-   d. In the Network tab, locate the redirect starting with "ondus://.../token?...".
-   e. Open a new tab, paste that URL and replace "ondus://" with "https://".
-   f. Copy the "refresh_token" value and paste it into the Homey pairing screen.
-3. Select your Sense Guard to complete the setup.
+1. In the Homey app, tap Devices → + → Grohe Sense → Grohe Sense or Grohe Sense Guard.
+2. Log in:
+   • Easy Login (Recommended): Enter your Grohe Ondus account Email and Password directly and tap Log in with GROHE.
+   • Social Login / Token: If using Apple/Google sign-in, switch to the Link / Token tab, log in via your browser, copy the redirect link (ondus://...), JSON or token, and paste it into Homey.
+3. Select your device from the list to complete setup.
 
 VIBE CODING & ACKNOWLEDGEMENTS
 This app was created using "vibe coding" (AI-assisted rapid software engineering). Full credit and heartfelt gratitude go to the brilliant open source community and the developers who previously reverse-engineered and documented the Grohe Ondus API:

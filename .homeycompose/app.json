@@ -1,6 +1,6 @@
 {
   "id": "net.lindbom.grohe",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "compatibility": ">=10.0.0",
   "sdk": 3,
   "platforms": [
@@ -11,8 +11,8 @@
     "sv": "Grohe Sense"
   },
   "description": {
-    "en": "Control and monitor Grohe Sense Guard water security system.",
-    "sv": "Styr och övervaka din Grohe Sense Guard vattenfelsbrytare."
+    "en": "Control and monitor Grohe Sense and Grohe Sense Guard water security system.",
+    "sv": "Styr och övervaka dina Grohe Sense och Grohe Sense Guard enheter."
   },
   "category": [
     "security",

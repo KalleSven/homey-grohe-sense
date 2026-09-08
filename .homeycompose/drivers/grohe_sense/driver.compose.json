@@ -1,0 +1,85 @@
+{
+  "name": {
+    "en": "Grohe Sense",
+    "sv": "Grohe Sense"
+  },
+  "class": "sensor",
+  "platforms": [
+    "local"
+  ],
+  "connectivity": [
+    "cloud"
+  ],
+  "capabilities": [
+    "alarm_water",
+    "measure_temperature",
+    "measure_humidity",
+    "measure_battery",
+    "alarm_battery",
+    "alarm_frost"
+  ],
+  "energy": {
+    "batteries": [
+      "AAA",
+      "AAA",
+      "AAA"
+    ]
+  },
+  "capabilitiesOptions": {
+    "alarm_water": {
+      "title": {
+        "en": "Water Leak Alarm",
+        "sv": "Vattenläckagelarm"
+      }
+    },
+    "measure_temperature": {
+      "title": {
+        "en": "Temperature",
+        "sv": "Temperatur"
+      }
+    },
+    "measure_humidity": {
+      "title": {
+        "en": "Humidity",
+        "sv": "Luftfuktighet"
+      }
+    }
+  },
+  "images": {
+    "large": "drivers/grohe_sense/assets/images/large.png",
+    "small": "drivers/grohe_sense/assets/images/small.png"
+  },
+  "pair": [
+    {
+      "id": "login"
+    },
+    {
+      "id": "list_devices",
+      "template": "list_devices",
+      "navigation": {
+        "next": "add_devices"
+      }
+    },
+    {
+      "id": "add_devices",
+      "template": "add_devices"
+    }
+  ],
+  "settings": [
+    {
+      "id": "poll_interval",
+      "type": "number",
+      "label": {
+        "en": "Poll Interval (seconds)",
+        "sv": "Uppdateringsintervall (sekunder)"
+      },
+      "hint": {
+        "en": "How often to poll status and measurements from Grohe Cloud (min: 60, default: 900)",
+        "sv": "Hur ofta status och mätvärden ska hämtas från Grohe Cloud (min: 60, standard: 900)"
+      },
+      "value": 900,
+      "min": 60,
+      "max": 86400
+    }
+  ]
+}

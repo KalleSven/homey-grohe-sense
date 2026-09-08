@@ -1,5 +1,8 @@
 {
   "1.0.0": {
     "en": "Initial release of Grohe Sense Guard integration"
+  },
+  "1.1.0": {
+    "en": "Added Grohe Sense water sensor support and direct email/password login flow"
   }
 }

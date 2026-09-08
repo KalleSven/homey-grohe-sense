@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.1.0] - 2026-09-08
+
+### Added
+- Support for **Grohe Sense** and **Grohe Sense+** water sensor devices (Type 101 & 102).
+- **Direct Login with Email & Password**: Simplified pairing flow that automatically authenticates with Grohe Cloud without manual token extraction.
+- **Smart Link / Token Parser**: Support for pasting `ondus://` redirect links, JSON payloads, or raw tokens directly.
+- Monitoring of ambient temperature (`measure_temperature`, °C) and humidity (`measure_humidity`, %).
+- Water leak detection (`alarm_water`) and frost alarm (`alarm_frost`).
+- Battery percentage (`measure_battery`, %) and low battery alert (`alarm_battery`).
+- Automatic discovery during pairing with Grohe Ondus account.
+
 ## [1.0.0] - 2026-08-28
 
 ### Added

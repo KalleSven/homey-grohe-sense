@@ -4,6 +4,12 @@
     "sv": "Grohe Sense Guard"
   },
   "class": "sensor",
+  "platforms": [
+    "local"
+  ],
+  "connectivity": [
+    "cloud"
+  ],
   "capabilities": [
     "onoff",
     "alarm_water",
@@ -66,8 +72,8 @@
     }
   },
   "images": {
-    "large": "drivers/grohe_sense_guard/assets/icon.svg",
-    "small": "drivers/grohe_sense_guard/assets/icon.svg"
+    "large": "drivers/grohe_sense_guard/assets/images/large.png",
+    "small": "drivers/grohe_sense_guard/assets/images/small.png"
   },
   "pair": [
     {

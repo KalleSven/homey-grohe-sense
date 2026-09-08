@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">
+  <defs>
+    <linearGradient id="senseGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0288D1" />
+      <stop offset="100%" stop-color="#01579B" />
+    </linearGradient>
+  </defs>
+  <!-- Grohe Sense circular puck shape -->
+  <circle cx="50" cy="50" r="42" fill="url(#senseGrad)" stroke="#FFFFFF" stroke-width="2.5"/>
+  <!-- Outer ring indicator -->
+  <circle cx="50" cy="50" r="32" fill="none" stroke="#FFFFFF" stroke-width="2" opacity="0.35"/>
+  <!-- Water droplet / sensor motif -->
+  <path d="M50 25 C50 25 34 44 34 54 C34 62.8 41.2 70 50 70 C58.8 70 66 62.8 66 54 C66 44 50 25 50 25 Z" fill="#00E5FF" opacity="0.9"/>
+  <!-- Inner ripple / highlight -->
+  <path d="M50 33 C50 33 39 47 39 54 C39 60.1 43.9 65 50 65 C51.2 65 52.3 64.8 53.4 64.4 C49 63.5 45.7 59.6 45.7 55 C45.7 49 50 38 50 33 Z" fill="#FFFFFF" opacity="0.6"/>
+  <!-- Center status dot -->
+  <circle cx="50" cy="55" r="4" fill="#FFFFFF" />
+</svg>

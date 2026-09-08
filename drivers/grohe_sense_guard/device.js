@@ -222,8 +222,9 @@ class GroheSenseGuardDevice extends Homey.Device {
    * Helper to update water temperature
    */
   updateTemperature(val) {
-    if (typeof val !== 'number' || isNaN(val)) return;
-    const temp = Math.round(val * 10) / 10;
+    const num = typeof val === 'number' ? val : parseFloat(val);
+    if (typeof num !== 'number' || isNaN(num)) return;
+    const temp = Math.round(num * 10) / 10;
     this.log(`Received water temperature: ${temp} °C`);
     this.setCapabilityValue('measure_temperature', temp).catch(this.error);
   }
@@ -232,8 +233,9 @@ class GroheSenseGuardDevice extends Homey.Device {
    * Helper to update water pressure
    */
   updatePressure(val) {
-    if (typeof val !== 'number' || isNaN(val)) return;
-    const pressureVal = Math.round(val * 100) / 100;
+    const num = typeof val === 'number' ? val : parseFloat(val);
+    if (typeof num !== 'number' || isNaN(num)) return;
+    const pressureVal = Math.round(num * 100) / 100;
     this.setCapabilityValue('measure_pressure', pressureVal).catch(this.error);
     if (this.lastKnownPressure !== pressureVal) {
       this.lastKnownPressure = pressureVal;
@@ -247,8 +249,9 @@ class GroheSenseGuardDevice extends Homey.Device {
    * Helper to update water flow rate
    */
   updateFlowRate(val) {
-    if (typeof val !== 'number' || isNaN(val)) return;
-    const flow = Math.round(val * 100) / 100;
+    const num = typeof val === 'number' ? val : parseFloat(val);
+    if (typeof num !== 'number' || isNaN(num)) return;
+    const flow = Math.round(num * 100) / 100;
     this.setCapabilityValue('measure_water_flow', flow).catch(this.error);
   }
 
