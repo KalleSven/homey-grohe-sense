@@ -1,0 +1,11 @@
+{
+  "type": "boolean",
+  "title": {
+    "en": "Silence Alarms",
+    "sv": "Tysta larm"
+  },
+  "uiComponent": "button",
+  "getable": false,
+  "setable": true,
+  "insights": false
+}

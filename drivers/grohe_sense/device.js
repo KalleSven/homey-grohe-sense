@@ -25,9 +25,19 @@ class GroheSenseDevice extends Homey.Device {
     this.api = new GroheApi(this.auth, this);
 
     // Track active alarms & last values
+    this.acknowledgedNotifications = new Set();
+    this.activeNotifications = [];
     this.lastKnownTemperature = null;
     this.lastKnownHumidity = null;
     this.lastKnownBattery = null;
+
+    // Ensure button_silence_alarm capability exists on device (for existing paired devices)
+    if (!this.hasCapability('button_silence_alarm')) {
+      await this.addCapability('button_silence_alarm').catch(this.error);
+    }
+    this.registerCapabilityListener('button_silence_alarm', async () => {
+      return this.silenceAlarm('all');
+    });
 
     // Start polling timers
     this.startPolling();
@@ -72,7 +82,8 @@ class GroheSenseDevice extends Homey.Device {
         this.error('Error fetching notifications:', err.message);
         return [];
       });
-      this.processNotifications(notifs);
+      this.activeNotifications = Array.isArray(notifs) ? notifs : [];
+      this.processNotifications(this.activeNotifications);
 
       // 2. Fetch appliance status (battery, temperature, humidity, wifi)
       const statusRes = await this.api.getApplianceStatus(this.locationId, this.roomId, this.applianceId).catch((err) => {
@@ -104,10 +115,25 @@ class GroheSenseDevice extends Homey.Device {
   }
 
   /**
+   * Helper to get a stable unique key for a notification
+   */
+  getNotificationKey(notif) {
+    return String(notif.id || notif.uuid || notif.notification_id || `${notif.category}_${notif.type}_${notif.timestamp || notif.date || ''}`);
+  }
+
+  /**
    * Process notifications received from Grohe Cloud
    */
   processNotifications(notifications) {
     if (!Array.isArray(notifications)) return;
+
+    // Prune acknowledged notifications that no longer exist in Grohe Cloud response
+    const currentKeys = new Set(notifications.map((n) => this.getNotificationKey(n)));
+    for (const ackKey of this.acknowledgedNotifications) {
+      if (!currentKeys.has(ackKey)) {
+        this.acknowledgedNotifications.delete(ackKey);
+      }
+    }
 
     let hasWaterLeak = false;
     let hasFrostWarning = false;
@@ -118,6 +144,11 @@ class GroheSenseDevice extends Homey.Device {
     for (const notif of notifications) {
       const isUnread = notif.is_read === false || notif.read === false || notif.status === 0;
       if (!isUnread) continue;
+
+      const notifKey = this.getNotificationKey(notif);
+      if (this.acknowledgedNotifications.has(notifKey)) {
+        continue;
+      }
 
       const category = notif.category;
       const type = notif.type;
@@ -186,6 +217,58 @@ class GroheSenseDevice extends Homey.Device {
       this.log(`Updating alarm_battery from ${prevBatteryAlarm} to ${hasBatteryAlarm}`);
       this.setCapabilityValue('alarm_battery', hasBatteryAlarm).catch(this.error);
     }
+  }
+
+  /**
+   * Silence / reset alarms locally and in Grohe Cloud
+   */
+  async silenceAlarm(alarmType = 'all') {
+    this.log(`Silencing alarm (${alarmType}) on ${this.getName()}`);
+    const toAcknowledge = [];
+
+    for (const notif of this.activeNotifications) {
+      const isUnread = notif.is_read === false || notif.read === false || notif.status === 0;
+      if (!isUnread) continue;
+
+      const category = notif.category;
+      const type = notif.type;
+      let matches = false;
+
+      if (alarmType === 'all') {
+        matches = true;
+      } else if (alarmType === 'water') {
+        matches = category === NOTIFICATION_CATEGORY_CRITICAL || (category === NOTIFICATION_CATEGORY_WARNING && [430, 431].includes(type));
+      } else if (alarmType === 'frost') {
+        matches = category === NOTIFICATION_CATEGORY_WARNING && [40, 340].includes(type);
+      }
+
+      if (matches) {
+        const key = this.getNotificationKey(notif);
+        this.acknowledgedNotifications.add(key);
+        toAcknowledge.push(notif);
+      }
+    }
+
+    // Turn off relevant capabilities
+    if (alarmType === 'all' || alarmType === 'water') {
+      if (this.hasCapability('alarm_water') && this.getCapabilityValue('alarm_water')) {
+        await this.setCapabilityValue('alarm_water', false).catch(this.error);
+        this.homey.flow.getDeviceTriggerCard('alarm_water_cleared').trigger(this).catch(this.error);
+      }
+    }
+    if (alarmType === 'all' || alarmType === 'frost') {
+      if (this.hasCapability('alarm_frost') && this.getCapabilityValue('alarm_frost')) {
+        await this.setCapabilityValue('alarm_frost', false).catch(this.error);
+      }
+    }
+
+    // Acknowledge in Grohe Cloud
+    if (toAcknowledge.length > 0) {
+      this.api.acknowledgeNotifications(this.locationId, this.roomId, this.applianceId, toAcknowledge)
+        .catch((err) => this.error('Failed to acknowledge notifications in Grohe Cloud:', err.message));
+    }
+
+    return true;
   }
 
   /**

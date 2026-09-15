@@ -330,6 +330,62 @@
       },
       {
         "title": {
+          "en": "Silence / Reset alarm",
+          "sv": "Tysta / Återställ larm"
+        },
+        "titleFormatted": {
+          "en": "Silence [[alarm_type]]",
+          "sv": "Tysta [[alarm_type]]"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=grohe_sense_guard|driver_id=grohe_sense"
+          },
+          {
+            "name": "alarm_type",
+            "type": "dropdown",
+            "title": {
+              "en": "Alarm Type",
+              "sv": "Larmtyp"
+            },
+            "values": [
+              {
+                "id": "all",
+                "label": {
+                  "en": "All active alarms",
+                  "sv": "Alla aktiva larm"
+                }
+              },
+              {
+                "id": "water",
+                "label": {
+                  "en": "Water leak alarm",
+                  "sv": "Vattenläckagelarm"
+                }
+              },
+              {
+                "id": "micro_leak",
+                "label": {
+                  "en": "Micro leak alarm",
+                  "sv": "Mikroläckagelarm"
+                }
+              },
+              {
+                "id": "frost",
+                "label": {
+                  "en": "Frost warning",
+                  "sv": "Frostvarning"
+                }
+              }
+            ]
+          }
+        ],
+        "id": "silence_alarms"
+      },
+      {
+        "title": {
           "en": "Toggle water valve",
           "sv": "Växla vattenventil"
         },
@@ -358,6 +414,7 @@
         "cloud"
       ],
       "capabilities": [
+        "button_silence_alarm",
         "alarm_water",
         "measure_temperature",
         "measure_humidity",
@@ -373,6 +430,12 @@
         ]
       },
       "capabilitiesOptions": {
+        "button_silence_alarm": {
+          "title": {
+            "en": "Silence Alarms",
+            "sv": "Tysta larm"
+          }
+        },
         "alarm_water": {
           "title": {
             "en": "Water Leak Alarm",
@@ -445,6 +508,7 @@
       ],
       "capabilities": [
         "onoff",
+        "button_silence_alarm",
         "alarm_water",
         "alarm_micro_leak",
         "alarm_frost",
@@ -467,6 +531,12 @@
           "insightsTitleFalse": {
             "en": "Valve closed",
             "sv": "Ventil stängd"
+          }
+        },
+        "button_silence_alarm": {
+          "title": {
+            "en": "Silence Alarms",
+            "sv": "Tysta larm"
           }
         },
         "alarm_water": {
@@ -595,6 +665,17 @@
         "en": "No micro leak",
         "sv": "Inget mikroläckage"
       }
+    },
+    "button_silence_alarm": {
+      "type": "boolean",
+      "title": {
+        "en": "Silence Alarms",
+        "sv": "Tysta larm"
+      },
+      "uiComponent": "button",
+      "getable": false,
+      "setable": true,
+      "insights": false
     },
     "measure_water_flow": {
       "type": "number",

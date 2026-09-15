@@ -53,6 +53,14 @@ class GroheSenseApp extends Homey.App {
       return true;
     });
 
+    this.homey.flow.getActionCard('silence_alarms').registerRunListener(async (args) => {
+      this.log('Flow Action: silence_alarms on device', args.device.getName(), 'type:', args.alarm_type);
+      if (typeof args.device.silenceAlarm === 'function') {
+        return args.device.silenceAlarm(args.alarm_type || 'all');
+      }
+      return false;
+    });
+
     // --- Flow Conditions ---
     this.homey.flow.getConditionCard('is_valve_open').registerRunListener(async (args) => {
       return !!args.device.getCapabilityValue('onoff');

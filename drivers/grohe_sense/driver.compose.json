@@ -11,6 +11,7 @@
     "cloud"
   ],
   "capabilities": [
+    "button_silence_alarm",
     "alarm_water",
     "measure_temperature",
     "measure_humidity",
@@ -26,6 +27,12 @@
     ]
   },
   "capabilitiesOptions": {
+    "button_silence_alarm": {
+      "title": {
+        "en": "Silence Alarms",
+        "sv": "Tysta larm"
+      }
+    },
     "alarm_water": {
       "title": {
         "en": "Water Leak Alarm",

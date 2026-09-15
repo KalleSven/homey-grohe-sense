@@ -12,6 +12,7 @@
   ],
   "capabilities": [
     "onoff",
+    "button_silence_alarm",
     "alarm_water",
     "alarm_micro_leak",
     "alarm_frost",
@@ -34,6 +35,12 @@
       "insightsTitleFalse": {
         "en": "Valve closed",
         "sv": "Ventil stängd"
+      }
+    },
+    "button_silence_alarm": {
+      "title": {
+        "en": "Silence Alarms",
+        "sv": "Tysta larm"
       }
     },
     "alarm_water": {
