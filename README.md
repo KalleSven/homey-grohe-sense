@@ -31,7 +31,7 @@ Integrates the **Grohe Sense** water sensor and **Grohe Sense Guard** smart wate
 ### Flow Cards
 - **Triggers (When)**: Valve opened/closed, leak detected, leak alarm cleared, micro leak detected, frost warning, pressure changed, today's consumption changed.
 - **Conditions (And)**: Valve is open/closed, leak alarm active, pressure above/below, micro leak active, frost warning active.
-- **Actions (Then)**: Open valve, Close valve, Toggle valve, Refresh data from cloud.
+- **Actions (Then)**: Open valve, Close valve, Toggle valve, Refresh data from cloud, Silence / Reset alarms.
 
 ## Installation & Setup
 
@@ -57,7 +57,11 @@ This app is an independent community project and is not officially affiliated wi
 ## Development
 
 ```bash
-cd /Users/johan/Desktop/Homey/net.lindbom.grohe
-homey app validate -l verified
+# Clone the repository
+git clone https://github.com/KalleSven/homey-grohe-sense.git
+cd homey-grohe-sense
+
+# Validate and test run app
+homey app validate -l debug
 homey app run
 ```
