@@ -41,6 +41,11 @@ Integrates the **Grohe Sense** water sensor and **Grohe Sense Guard** smart wate
    - **Social Login / Token**: If using Apple/Google sign-in, switch to the *Link / Token* tab, click the login link in your browser, copy the redirect link (`ondus://...`) or token, and paste it into Homey.
 3. Select your device from the discovered list.
 
+## Community & Support
+
+- 💬 **Homey Community Forum Thread**: [https://community.homey.app/t/app-pro-grohe-sense-grohe-sense-guard/159363](https://community.homey.app/t/app-pro-grohe-sense-grohe-sense-guard/159363)
+- 🐛 **Issues & Feature Requests**: [https://github.com/KalleSven/homey-grohe-sense/issues](https://github.com/KalleSven/homey-grohe-sense/issues)
+
 ## Vibe Coding & Acknowledgements
 
 This app was built using **vibe coding** (AI-assisted software engineering). All credit and sincere gratitude go to the open source contributors who reverse-engineered, documented, and published details about the Grohe Ondus API:
