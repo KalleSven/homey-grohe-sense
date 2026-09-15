@@ -22,8 +22,8 @@
   "author": {
     "name": "Johan Lindbom"
   },
-  "support": "https://github.com/johanlindbom/homey-grohe-sense/issues",
-  "source": "https://github.com/johanlindbom/homey-grohe-sense",
+  "support": "https://github.com/KalleSven/homey-grohe-sense/issues",
+  "source": "https://github.com/KalleSven/homey-grohe-sense",
   "images": {
     "large": "assets/images/large.png",
     "small": "assets/images/small.png"
