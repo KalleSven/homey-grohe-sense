@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.1.1] - 2026-09-15
+
+### Added
+- **Silence Alarms Button**: Dedicated button on device controls to quickly silence and reset active alarms.
+- **Flow Action Card**: Added *Silence / Reset alarms* action card to mute/clear all or specific alarms via Flows and automations.
+- **Smart Cloud Acknowledge & Local Snooze**: Muted alarms remain silenced across polling cycles and dismiss notifications/buzzer via Grohe Cloud API.
+- **Community Forum Link**: Added direct integration with the Homey Community forum thread.
+
 ## [1.1.0] - 2026-09-08
 
 ### Added
