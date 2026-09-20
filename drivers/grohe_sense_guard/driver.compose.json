@@ -19,7 +19,6 @@
     "measure_pressure",
     "measure_temperature",
     "measure_water_flow",
-    "meter_water",
     "meter_water_today"
   ],
   "capabilitiesOptions": {
@@ -65,17 +64,6 @@
         "en": "Water Temperature",
         "sv": "Vattentemperatur"
       }
-    },
-    "meter_water": {
-      "title": {
-        "en": "Total Consumption",
-        "sv": "Total förbrukning"
-      },
-      "units": {
-        "en": "l",
-        "sv": "l"
-      },
-      "decimals": 0
     }
   },
   "images": {

@@ -22,7 +22,6 @@ Integrates the **Grohe Sense** water sensor and **Grohe Sense Guard** smart wate
   - ⏱ **Water Pressure** (`bar`)
   - 🌊 **Flow Rate** (`l/min`)
   - 📊 **Water Consumption Today** (`l`)
-  - 📈 **Total Water Consumption** (`l`)
 - **Alarms**:
   - 🚨 **Water Leak Alarm** (Pipe break, flooding, unusual water consumption, Sense sensor detections)
   - 🔬 **Micro Leak Alarm**

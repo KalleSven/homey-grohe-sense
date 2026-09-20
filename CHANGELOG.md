@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.1.2] - 2026-09-20
+
+### Changed
+- Removed redundant cumulative total consumption meter (`meter_water`) on Grohe Sense Guard to focus on accurate and reliable daily water consumption (`meter_water_today`) tracking.
+- Automatically cleans up deprecated total consumption capability on existing paired devices without requiring re-pairing.
+
 ## [1.1.1] - 2026-09-15
 
 ### Added

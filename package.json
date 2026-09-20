@@ -1,6 +1,6 @@
 {
   "name": "net.lindbom.grohe",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "Integration of Grohe Sense and Grohe Sense Guard water security system for Athom Homey Pro.",
   "main": "app.js",
   "scripts": {

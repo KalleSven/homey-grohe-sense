@@ -42,6 +42,11 @@ class GroheSenseGuardDevice extends Homey.Device {
       return this.silenceAlarm('all');
     });
 
+    // Clean up obsolete meter_water capability if present on existing paired devices
+    if (this.hasCapability('meter_water')) {
+      await this.removeCapability('meter_water').catch(this.error);
+    }
+
     // Start polling timers
     this.startPolling();
 
@@ -428,44 +433,10 @@ class GroheSenseGuardDevice extends Homey.Device {
           .catch(this.error);
       }
 
-      // 4. Fetch total water consumption
-      await this.syncTotalConsumption(todayStr, dayWithdrawals);
-
       // Save token if updated
       this.saveLatestToken();
     } catch (err) {
       this.error('Error syncing measurements:', err.message);
-    }
-  }
-
-  /**
-   * Sync total water consumption
-   */
-  async syncTotalConsumption(todayStr, todayWithdrawals) {
-    try {
-      const regDate = this.getStoreValue('registrationDate') || '2018-01-01';
-      const fromStr = new Date(regDate).toISOString().split('T')[0];
-
-      let baseHistorical = this.getStoreValue('historicalConsumptionBase') || 0;
-      const lastCalculatedDay = this.getStoreValue('historicalConsumptionDay');
-
-      if (lastCalculatedDay !== todayStr) {
-        const histData = await this.api.getAggregatedData(this.locationId, this.roomId, this.applianceId, fromStr, todayStr);
-        let histTotal = 0;
-        if (histData && histData.data && Array.isArray(histData.data.withdrawals)) {
-          for (const w of histData.data.withdrawals) {
-            histTotal += (w.waterconsumption || 0);
-          }
-        }
-        baseHistorical = Math.max(0, Math.round(histTotal - todayWithdrawals));
-        await this.setStoreValue('historicalConsumptionBase', baseHistorical);
-        await this.setStoreValue('historicalConsumptionDay', todayStr);
-      }
-
-      const totalLitres = Math.round(baseHistorical + todayWithdrawals);
-      await this.setCapabilityValue('meter_water', totalLitres).catch(this.error);
-    } catch (err) {
-      this.error('Error syncing total water consumption:', err.message);
     }
   }
 
