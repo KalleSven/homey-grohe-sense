@@ -39,6 +39,11 @@ class GroheSenseDevice extends Homey.Device {
       return this.silenceAlarm('all');
     });
 
+    // Clean up obsolete alarm_battery capability if present on existing paired devices
+    if (this.hasCapability('alarm_battery')) {
+      await this.removeCapability('alarm_battery').catch(this.error);
+    }
+
     // Start polling timers
     this.startPolling();
 
@@ -153,22 +158,25 @@ class GroheSenseDevice extends Homey.Device {
       const category = notif.category;
       const type = notif.type;
       const notifInfo = NOTIFICATIONS[category]?.[type];
-      const desc = notifInfo?.sv || notifInfo?.en || `Larm (${category}/${type})`;
+      const lang = (this.homey.i18n && typeof this.homey.i18n.getLanguage === 'function')
+        ? this.homey.i18n.getLanguage()
+        : 'en';
+      const desc = (notifInfo && notifInfo[lang]) || notifInfo?.en || `Alarm (${category}/${type})`;
 
       if (category === NOTIFICATION_CATEGORY_CRITICAL) {
         hasWaterLeak = true;
-        primaryAlarmType = 'Kritiskt larm (Vatten detekterat)';
+        primaryAlarmType = lang === 'sv' ? 'Kritiskt larm (Vatten detekterat)' : 'Critical Alarm (Water Detected)';
         primaryAlarmDesc = desc;
       } else if (category === NOTIFICATION_CATEGORY_WARNING) {
         if ([11, 12].includes(type)) {
           hasBatteryAlarm = true;
         } else if ([40, 340].includes(type)) {
           hasFrostWarning = true;
-          primaryAlarmType = 'Frostvarning';
+          primaryAlarmType = lang === 'sv' ? 'Frostvarning' : 'Frost Warning';
           primaryAlarmDesc = desc;
         } else if ([430, 431].includes(type)) {
           hasWaterLeak = true;
-          primaryAlarmType = 'Vatten detekterat';
+          primaryAlarmType = lang === 'sv' ? 'Vatten detekterat' : 'Water Detected';
           primaryAlarmDesc = desc;
         }
       }
@@ -205,17 +213,6 @@ class GroheSenseDevice extends Homey.Device {
           .trigger(this, { temperature: typeof currentTemp === 'number' ? currentTemp : 0 })
           .catch(this.error);
       }
-    }
-
-    // Update alarm_battery
-    const currentBattery = this.getCapabilityValue('measure_battery');
-    if (typeof currentBattery === 'number' && currentBattery <= 20) {
-      hasBatteryAlarm = true;
-    }
-    const prevBatteryAlarm = !!this.getCapabilityValue('alarm_battery');
-    if (prevBatteryAlarm !== hasBatteryAlarm) {
-      this.log(`Updating alarm_battery from ${prevBatteryAlarm} to ${hasBatteryAlarm}`);
-      this.setCapabilityValue('alarm_battery', hasBatteryAlarm).catch(this.error);
     }
   }
 
@@ -314,9 +311,6 @@ class GroheSenseDevice extends Homey.Device {
     const battery = Math.min(100, Math.max(0, Math.round(num)));
     this.setCapabilityValue('measure_battery', battery).catch(this.error);
     this.lastKnownBattery = battery;
-
-    const isLow = battery <= 20;
-    this.setCapabilityValue('alarm_battery', isLow).catch(this.error);
   }
 
   /**

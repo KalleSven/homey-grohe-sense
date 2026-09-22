@@ -1,0 +1,28 @@
+{
+  "pair": {
+    "login": {
+      "title": "Grohe Ondus Login",
+      "intro_sense": "Anslut din Grohe Sense till Homey.",
+      "intro_guard": "Anslut din Grohe Sense Guard till Homey.",
+      "tab_credentials": "E-post & Lösenord",
+      "tab_token": "Länk / Token",
+      "email_label": "E-postadress",
+      "email_placeholder": "din.epost@exempel.se",
+      "password_label": "Lösenord",
+      "password_placeholder": "Ditt Grohe-lösenord",
+      "security_note": "🔒 Uppgifterna skickas krypterat direkt till Grohe Cloud och sparas inte i Homey.",
+      "btn_login": "Logga in med GROHE",
+      "instructions_header": "För Apple/Google-inloggning eller manuell token:",
+      "instructions_step1": "Öppna <a href=\"https://idp2-apigw.cloud.grohe.com/v3/iot/oidc/login\" target=\"_blank\">Grohes inloggningssida</a>.",
+      "instructions_step2": "Logga in med ditt konto.",
+      "instructions_step3": "Kopiera omdirigeringslänken (ondus://...), JSON eller token och klistra in nedan.",
+      "token_label": "Länk eller Refresh Token",
+      "token_placeholder": "Klistra in länk (ondus://...), JSON eller token här...",
+      "btn_token_login": "Anslut med länk / token",
+      "authenticating": "Autentiserar mot Grohe Cloud...",
+      "login_failed": "Inloggningen misslyckades. Kontrollera dina inloggningsuppgifter.",
+      "missing_credentials": "Inloggningsuppgifter saknas.",
+      "enter_credentials_or_token": "Vänligen ange antingen e-post/lösenord eller en token/länk."
+    }
+  }
+}

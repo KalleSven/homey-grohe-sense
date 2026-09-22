@@ -23,7 +23,7 @@ class GroheSenseDriver extends Homey.Driver {
     session.setHandler('login', async (data) => {
       this.log('Pairing: login requested');
       if (!data) {
-        throw new Error('Inloggningsuppgifter saknas.');
+        throw new Error('Login credentials missing.');
       }
 
       auth = new GroheAuth(this);
@@ -43,7 +43,7 @@ class GroheSenseDriver extends Homey.Driver {
         auth.setRefreshToken(resolvedToken);
         await auth.refresh();
       } else {
-        throw new Error('Vänligen ange antingen e-post/lösenord eller en token/länk.');
+        throw new Error('Please provide either email/password or a token/link.');
       }
 
       api = new GroheApi(auth, this);

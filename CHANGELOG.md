@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.1.3] - 2026-09-22
+
+### Changed
+- Refined app description into a clear, engaging tagline in English and Swedish.
+- Modernized and simplified README according to Athom App Store Guidelines.
+- Redesigned app and driver icons into clean vector outlines (960x960, solid black on transparent background).
+- Updated app store banners and added real product photos on white background for device pairing.
+- Standardized pairing views with English base language and complete Swedish localization via Homey i18n (`locales/`).
+- Removed redundant `alarm_battery` capability on Grohe Sense in favor of `measure_battery` to avoid duplicate UI components.
+
 ## [1.1.2] - 2026-09-20
 
 ### Changed

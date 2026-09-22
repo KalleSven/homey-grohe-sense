@@ -195,24 +195,27 @@ class GroheSenseGuardDevice extends Homey.Device {
       const category = notif.category;
       const type = notif.type;
       const notifInfo = NOTIFICATIONS[category]?.[type];
-      const desc = notifInfo?.sv || notifInfo?.en || `Larm (${category}/${type})`;
+      const lang = (this.homey.i18n && typeof this.homey.i18n.getLanguage === 'function')
+        ? this.homey.i18n.getLanguage()
+        : 'en';
+      const desc = (notifInfo && notifInfo[lang]) || notifInfo?.en || `Alarm (${category}/${type})`;
 
       if (category === NOTIFICATION_CATEGORY_CRITICAL) {
         hasWaterLeak = true;
-        primaryAlarmType = 'Kritiskt larm';
+        primaryAlarmType = lang === 'sv' ? 'Kritiskt larm' : 'Critical Alarm';
         primaryAlarmDesc = desc;
       } else if (category === NOTIFICATION_CATEGORY_WARNING) {
         if ([320, 321, 420, 421].includes(type)) {
           hasWaterLeak = true;
-          primaryAlarmType = 'Ovanlig förbrukning / Tryckproblem';
+          primaryAlarmType = lang === 'sv' ? 'Ovanlig förbrukning / Tryckproblem' : 'Unusual Consumption / Pressure Issue';
           primaryAlarmDesc = desc;
         } else if ([330, 332].includes(type)) {
           hasMicroLeak = true;
-          primaryAlarmType = 'Mikroläckage';
+          primaryAlarmType = lang === 'sv' ? 'Mikroläckage' : 'Micro Leak';
           primaryAlarmDesc = desc;
         } else if ([40, 340].includes(type)) {
           hasFrostWarning = true;
-          primaryAlarmType = 'Frostvarning';
+          primaryAlarmType = lang === 'sv' ? 'Frostvarning' : 'Frost Warning';
           primaryAlarmDesc = desc;
         }
       }

@@ -29,48 +29,48 @@
   </style>
 </head>
 <body>
-  <h2>Grohe Ondus Login</h2>
-  <div class="intro">Anslut din Grohe Sense Guard till Homey.</div>
+  <h2 data-i18n="pair.login.title">Grohe Ondus Login</h2>
+  <div class="intro" data-i18n="pair.login.intro_guard">Connect your Grohe Sense Guard to Homey.</div>
 
   <div class="tabs">
-    <button type="button" class="tab-btn active" id="btn-tab-cred" onclick="switchTab('cred')">E-post & Lösenord</button>
-    <button type="button" class="tab-btn" id="btn-tab-tok" onclick="switchTab('tok')">Länk / Token</button>
+    <button type="button" class="tab-btn active" id="btn-tab-cred" onclick="switchTab('cred')" data-i18n="pair.login.tab_credentials">Email & Password</button>
+    <button type="button" class="tab-btn" id="btn-tab-tok" onclick="switchTab('tok')" data-i18n="pair.login.tab_token">Link / Token</button>
   </div>
 
   <div class="tab-content active" id="tab-cred">
     <form id="form-cred">
       <div class="form-group">
-        <label for="email">E-postadress</label>
-        <input type="email" id="email" placeholder="din.epost@exempel.se" autocomplete="email" required>
+        <label for="email" data-i18n="pair.login.email_label">Email Address</label>
+        <input type="email" id="email" placeholder="your.email@example.com" data-i18n-placeholder="pair.login.email_placeholder" autocomplete="email" required>
       </div>
       <div class="form-group">
-        <label for="password">Lösenord</label>
-        <input type="password" id="password" placeholder="Ditt Grohe-lösenord" autocomplete="current-password" required>
+        <label for="password" data-i18n="pair.login.password_label">Password</label>
+        <input type="password" id="password" placeholder="Your Grohe password" data-i18n-placeholder="pair.login.password_placeholder" autocomplete="current-password" required>
       </div>
-      <div class="sec-note">🔒 Uppgifterna skickas krypterat direkt till Grohe Cloud och sparas inte i Homey.</div>
-      <button type="submit" id="submit-cred" class="btn">Logga in med GROHE</button>
+      <div class="sec-note" data-i18n="pair.login.security_note">🔒 Credentials are encrypted and sent directly to Grohe Cloud, never stored in Homey.</div>
+      <button type="submit" id="submit-cred" class="btn" data-i18n="pair.login.btn_login">Log in with GROHE</button>
     </form>
   </div>
 
   <div class="tab-content" id="tab-tok">
     <div class="instructions">
-      <strong>För Apple/Google-inloggning eller manuell token:</strong>
+      <strong data-i18n="pair.login.instructions_header">For Apple/Google sign-in or manual token:</strong>
       <ol>
-        <li>Öppna <a href="https://idp2-apigw.cloud.grohe.com/v3/iot/oidc/login" target="_blank">Grohes inloggningssida</a>.</li>
-        <li>Logga in med ditt konto.</li>
-        <li>Kopiera omdirigeringslänken (ondus://...), JSON eller token och klistra in nedan.</li>
+        <li data-i18n="pair.login.instructions_step1">Open <a href="https://idp2-apigw.cloud.grohe.com/v3/iot/oidc/login" target="_blank">Grohe login page</a>.</li>
+        <li data-i18n="pair.login.instructions_step2">Log in with your account.</li>
+        <li data-i18n="pair.login.instructions_step3">Copy the redirect link (ondus://...), JSON or token and paste below.</li>
       </ol>
     </div>
     <form id="form-tok">
       <div class="form-group">
-        <label for="token-input">Länk eller Refresh Token</label>
-        <textarea id="token-input" placeholder="Klistra in länk (ondus://...), JSON eller token här..." required></textarea>
+        <label for="token-input" data-i18n="pair.login.token_label">Link or Refresh Token</label>
+        <textarea id="token-input" placeholder="Paste link (ondus://...), JSON or token here..." data-i18n-placeholder="pair.login.token_placeholder" required></textarea>
       </div>
-      <button type="submit" id="submit-tok" class="btn">Anslut med länk / token</button>
+      <button type="submit" id="submit-tok" class="btn" data-i18n="pair.login.btn_token_login">Connect with link / token</button>
     </form>
   </div>
 
-  <div id="spinner" class="spinner">Autentiserar mot Grohe Cloud...</div>
+  <div id="spinner" class="spinner" data-i18n="pair.login.authenticating">Authenticating with Grohe Cloud...</div>
   <div id="error-box" class="error-box"></div>
 
   <script type="text/javascript">
@@ -108,7 +108,8 @@
       if (l) document.getElementById('error-box').style.display = 'none';
     }
     function showError(m) {
-      document.getElementById('error-box').textContent = typeof m === 'string' ? m : 'Inloggningen misslyckades.';
+      var fallback = typeof Homey.__ === 'function' ? Homey.__('pair.login.login_failed') : 'Login failed. Please check your credentials.';
+      document.getElementById('error-box').textContent = typeof m === 'string' ? m : fallback;
       document.getElementById('error-box').style.display = 'block';
     }
   </script>

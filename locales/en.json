@@ -1,0 +1,28 @@
+{
+  "pair": {
+    "login": {
+      "title": "Grohe Ondus Login",
+      "intro_sense": "Connect your Grohe Sense to Homey.",
+      "intro_guard": "Connect your Grohe Sense Guard to Homey.",
+      "tab_credentials": "Email & Password",
+      "tab_token": "Link / Token",
+      "email_label": "Email Address",
+      "email_placeholder": "your.email@example.com",
+      "password_label": "Password",
+      "password_placeholder": "Your Grohe password",
+      "security_note": "🔒 Credentials are encrypted and sent directly to Grohe Cloud, never stored in Homey.",
+      "btn_login": "Log in with GROHE",
+      "instructions_header": "For Apple/Google sign-in or manual token:",
+      "instructions_step1": "Open <a href=\"https://idp2-apigw.cloud.grohe.com/v3/iot/oidc/login\" target=\"_blank\">Grohe login page</a>.",
+      "instructions_step2": "Log in with your account.",
+      "instructions_step3": "Copy the redirect link (ondus://...), JSON or token and paste below.",
+      "token_label": "Link or Refresh Token",
+      "token_placeholder": "Paste link (ondus://...), JSON or token here...",
+      "btn_token_login": "Connect with link / token",
+      "authenticating": "Authenticating with Grohe Cloud...",
+      "login_failed": "Login failed. Please check your credentials.",
+      "missing_credentials": "Login credentials missing.",
+      "enter_credentials_or_token": "Please provide either email/password or a token/link."
+    }
+  }
+}

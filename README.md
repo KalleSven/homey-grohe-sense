@@ -12,7 +12,7 @@ Integrates the **Grohe Sense** water sensor and **Grohe Sense Guard** smart wate
 - 🚨 **Water Leak Alarm** (`alarm_water`)
 - 🌡 **Temperature Measurement** (`measure_temperature`, `°C`)
 - 💧 **Humidity Measurement** (`measure_humidity`, `%`)
-- 🔋 **Battery Monitoring** (`measure_battery`, `alarm_battery`)
+- 🔋 **Battery Monitoring** (`measure_battery`, `%`)
 - ❄️ **Frost Warning** (`alarm_frost`)
 
 ### Grohe Sense Guard (Smart Water Controller)
@@ -44,15 +44,6 @@ Integrates the **Grohe Sense** water sensor and **Grohe Sense Guard** smart wate
 
 - 💬 **Homey Community Forum Thread**: [https://community.homey.app/t/app-pro-grohe-sense-grohe-sense-guard/159363](https://community.homey.app/t/app-pro-grohe-sense-grohe-sense-guard/159363)
 - 🐛 **Issues & Feature Requests**: [https://github.com/KalleSven/homey-grohe-sense/issues](https://github.com/KalleSven/homey-grohe-sense/issues)
-
-## Vibe Coding & Acknowledgements
-
-This app was built using **vibe coding** (AI-assisted software engineering). All credit and sincere gratitude go to the open source contributors who reverse-engineered, documented, and published details about the Grohe Ondus API:
-
-- **Frank Aune ([@faune](https://github.com/faune))** – Creator of [`homebridge-grohe-sense`](https://github.com/faune/homebridge-grohe-sense), whose comprehensive Ondus API implementation and notification categorization provided indispensable reference material.
-- **FlorianSW ([@FlorianSW](https://github.com/FlorianSW))** – Early pioneer of [`grohe-ondus-api-java`](https://github.com/FlorianSW/grohe-ondus-api-java).
-- **Gunnar Kreitz ([@gkreitz](https://github.com/gkreitz))** – Developer of [`homeassistant-grohe_sense`](https://github.com/gkreitz/homeassistant-grohe_sense).
-- **Patrick Nitsch ([@patricknitsch](https://github.com/patricknitsch))** – Maintainer of [`ioBroker.grohe-smarthome`](https://github.com/patricknitsch/ioBroker.grohe-smarthome).
 
 ## Disclaimer
 
