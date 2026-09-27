@@ -2,6 +2,30 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.2.0] - 2026-09-27
+
+### Added
+- **Repair**: when the Grohe login expires, use *Repair* in the device settings to log in again, without removing the device or losing Flows. Repairing one device reconnects all devices on the same account.
+- Devices are marked **unavailable** with a clear message when the Grohe login has expired or Grohe Cloud can't be reached, and become available again automatically.
+
+### Changed
+- Devices on the same Grohe account share one login, so a refreshed token is used by all of them. Existing devices are migrated automatically.
+- Silencing an alarm marks the notification as read in Grohe Cloud (the same way the Grohe app does) and turns off the Sense Guard buzzer only if it is actually sounding. Silenced alarms stay silenced after an app restart.
+- Valve commands are sent one at a time and in order, so rapid open/close always ends in the last requested state.
+- Live values on the Sense Guard (temperature, pressure, flow) come from the latest measurement first, with older data only as a fallback.
+- The login screen only sends credentials and tokens to `https://*.grohe.com`.
+- Requests to Grohe Cloud time out after 15 seconds instead of hanging.
+
+### Fixed
+- Valve Flow cards triggered *Valve opened/closed* twice and didn't update the device tile.
+- Daily water consumption used the UTC date, so it showed yesterday's total just after midnight.
+- Daily water consumption dropped to 0 (and triggered a Flow) when a request to Grohe Cloud failed.
+- Active alarms were cleared when fetching notifications failed.
+- The Grohe Sense frost alarm flickered around 3 °C and could not be silenced. It now uses hysteresis (on at 3 °C, off at 4 °C).
+- Changing the poll interval only took effect after an app restart.
+- Micro leak, frost and pressure alarms were not recognized when Grohe reports the notification type as `notification_type`.
+- The *Water leak detected* Flow token could show another alarm's type.
+
 ## [1.1.3] - 2026-09-22
 
 ### Changed

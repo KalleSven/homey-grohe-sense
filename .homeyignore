@@ -1,0 +1,4 @@
+# Files that don't belong in the published app package
+build_assets.py
+README.md
+CHANGELOG.md

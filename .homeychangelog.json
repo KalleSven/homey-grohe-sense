@@ -10,5 +10,13 @@
   },
   "1.1.2": {
     "en": "Removed redundant cumulative total consumption meter to focus on reliable daily water consumption tracking"
+  },
+  "1.1.3": {
+    "en": "Updated app description, icons and product images, full Swedish translation of the pairing screens, and removed the duplicate battery alarm on Grohe Sense.",
+    "sv": "Uppdaterad appbeskrivning, ikoner och produktbilder, fullständig svensk översättning av parningsvyerna, och borttaget dubblerat batterilarm på Grohe Sense."
+  },
+  "1.2.0": {
+    "en": "Repair: log in again from the device settings when the Grohe login expires, without losing your Flows. Devices on the same account now share one login. More reliable alarms, valve control and daily water consumption, and alarms silenced in Homey are now also marked as read in Grohe Cloud.",
+    "sv": "Reparera: logga in igen från enhetens inställningar när Grohe-inloggningen har gått ut, utan att förlora dina flöden. Enheter på samma konto delar nu en inloggning. Stabilare larm, ventilstyrning och dagsförbrukning, och larm som tystas i Homey markeras nu även som lästa i Grohe Cloud."
   }
 }

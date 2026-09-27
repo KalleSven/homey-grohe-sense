@@ -2,6 +2,8 @@
   "pair": {
     "login": {
       "title": "Grohe Ondus Login",
+      "intro": "Anslut din Grohe-enhet till Homey.",
+      "intro_repair": "Logga in igen för att återansluta enheten till Grohe Cloud.",
       "intro_sense": "Anslut din Grohe Sense till Homey.",
       "intro_guard": "Anslut din Grohe Sense Guard till Homey.",
       "tab_credentials": "E-post & Lösenord",
@@ -24,5 +26,10 @@
       "missing_credentials": "Inloggningsuppgifter saknas.",
       "enter_credentials_or_token": "Vänligen ange antingen e-post/lösenord eller en token/länk."
     }
+  },
+  "errors": {
+    "auth_expired": "Grohe-inloggningen har gått ut. Använd Reparera i enhetens inställningar för att logga in igen.",
+    "cloud_unreachable": "Kunde inte nå Grohe Cloud. Försöker igen automatiskt.",
+    "device_not_in_account": "Enheten hittades inte i det Grohe-konto du loggade in med."
   }
 }

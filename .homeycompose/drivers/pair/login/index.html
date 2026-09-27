@@ -30,7 +30,7 @@
 </head>
 <body>
   <h2 data-i18n="pair.login.title">Grohe Ondus Login</h2>
-  <div class="intro" data-i18n="pair.login.intro_guard">Connect your Grohe Sense Guard to Homey.</div>
+  <div class="intro" id="intro"></div>
 
   <div class="tabs">
     <button type="button" class="tab-btn active" id="btn-tab-cred" onclick="switchTab('cred')" data-i18n="pair.login.tab_credentials">Email & Password</button>
@@ -74,6 +74,16 @@
   <div id="error-box" class="error-box"></div>
 
   <script type="text/javascript">
+    // Shared by all drivers for pairing and repair. The intro text is chosen per driver/view
+    // through $pairOptions / $repairOptions in driver.compose.json.
+    var intro = document.getElementById('intro');
+    intro.textContent = Homey.__('pair.login.intro');
+    var optionsPromise = typeof Homey.getOptions === 'function' ? Homey.getOptions() : null;
+    if (optionsPromise && typeof optionsPromise.then === 'function') {
+      optionsPromise.then(function(options) {
+        if (options && options.introKey) intro.textContent = Homey.__(options.introKey);
+      }).catch(function() {});
+    }
     Homey.ready();
     function switchTab(t) {
       document.getElementById('btn-tab-cred').className = 'tab-btn' + (t === 'cred' ? ' active' : '');
@@ -89,7 +99,7 @@
       if (!em || !pw) return;
       setLoading(true);
       Homey.emit('login', { email: em, password: pw })
-        .then(function() { setLoading(false); Homey.nextView(); })
+        .then(onLoggedIn)
         .catch(function(err) { setLoading(false); showError(err && err.message ? err.message : err); });
     });
     document.getElementById('form-tok').addEventListener('submit', function(e) {
@@ -98,9 +108,15 @@
       if (!tok) return;
       setLoading(true);
       Homey.emit('login', { tokenInput: tok })
-        .then(function() { setLoading(false); Homey.nextView(); })
+        .then(onLoggedIn)
         .catch(function(err) { setLoading(false); showError(err && err.message ? err.message : err); });
     });
+    function onLoggedIn(result) {
+      setLoading(false);
+      // Repair sessions finish here; pairing continues to the device list
+      if (result === 'repaired') Homey.done();
+      else Homey.nextView();
+    }
     function setLoading(l) {
       document.getElementById('submit-cred').disabled = l;
       document.getElementById('submit-tok').disabled = l;

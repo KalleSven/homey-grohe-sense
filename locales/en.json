@@ -2,6 +2,8 @@
   "pair": {
     "login": {
       "title": "Grohe Ondus Login",
+      "intro": "Connect your Grohe device to Homey.",
+      "intro_repair": "Log in again to reconnect your device to Grohe Cloud.",
       "intro_sense": "Connect your Grohe Sense to Homey.",
       "intro_guard": "Connect your Grohe Sense Guard to Homey.",
       "tab_credentials": "Email & Password",
@@ -24,5 +26,10 @@
       "missing_credentials": "Login credentials missing.",
       "enter_credentials_or_token": "Please provide either email/password or a token/link."
     }
+  },
+  "errors": {
+    "auth_expired": "Grohe login has expired. Use Repair in the device settings to log in again.",
+    "cloud_unreachable": "Could not reach Grohe Cloud. Retrying automatically.",
+    "device_not_in_account": "This device could not be found in the Grohe account you logged in with."
   }
 }

@@ -57,7 +57,8 @@
   },
   "pair": [
     {
-      "id": "login"
+      "id": "login",
+      "$template": "login"
     },
     {
       "id": "list_devices",
@@ -71,6 +72,22 @@
       "template": "add_devices"
     }
   ],
+  "$pairOptions": {
+    "login": {
+      "introKey": "pair.login.intro_sense"
+    }
+  },
+  "repair": [
+    {
+      "id": "login",
+      "$template": "login"
+    }
+  ],
+  "$repairOptions": {
+    "login": {
+      "introKey": "pair.login.intro_repair"
+    }
+  },
   "settings": [
     {
       "id": "poll_interval",
