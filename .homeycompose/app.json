@@ -8,10 +8,12 @@
   ],
   "name": {
     "en": "Grohe Sense",
+    "nl": "Grohe Sense",
     "sv": "Grohe Sense"
   },
   "description": {
     "en": "Detect leaks, track water usage, and safeguard your home.",
+    "nl": "Detecteer lekkages, volg het waterverbruik en bescherm uw huis.",
     "sv": "Upptäck läckor, följ din förbrukning och skydda ditt hem."
   },
   "category": [

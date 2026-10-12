@@ -1,6 +1,7 @@
 {
   "title": {
     "en": "Water leak detected",
+    "nl": "Waterlekkage gedetecteerd",
     "sv": "Ett vattenläckage detekterades"
   },
   "tokens": [
@@ -9,6 +10,7 @@
       "type": "string",
       "title": {
         "en": "Alarm Type",
+        "nl": "Alarmtype",
         "sv": "Larmtyp"
       },
       "example": "Pipe break"
@@ -18,9 +20,12 @@
       "type": "string",
       "title": {
         "en": "Description",
+        "nl": "Beschrijving",
         "sv": "Beskrivning"
       },
-      "example": "Pipe break - water has been SHUT OFF"
+      "example": {
+        "en": "Pipe break - water has been SHUT OFF"
+      }
     }
   ],
   "args": [

@@ -1,6 +1,7 @@
 {
   "title": {
     "en": "Water leak alarm is !{{active|not active}}",
+    "nl": "Waterlekkagealarm is !{{actief|niet actief}}",
     "sv": "Vattenläckagelarm är !{{aktivt|inte aktivt}}"
   },
   "args": [

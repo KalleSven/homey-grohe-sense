@@ -2,6 +2,7 @@
   "type": "boolean",
   "title": {
     "en": "Silence Alarms",
+    "nl": "Alarmen dempen",
     "sv": "Tysta larm"
   },
   "uiComponent": "button",

@@ -1,6 +1,7 @@
 {
   "title": {
     "en": "Frost warning is !{{active|not active}}",
+    "nl": "Vorstwaarschuwing is !{{active|niet actief}}",
     "sv": "Frostvarning är !{{aktiv|inte aktiv}}"
   },
   "args": [

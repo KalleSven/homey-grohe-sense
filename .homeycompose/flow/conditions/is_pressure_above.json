@@ -1,10 +1,12 @@
 {
   "title": {
     "en": "Water pressure is !{{higher|lower}} than",
+    "nl": "Waterdruk is !{{hoger|lager}} dan",
     "sv": "Vattentrycket är !{{högre|lägre}} än"
   },
   "titleFormatted": {
     "en": "Water pressure is !{{higher|lower}} than [[pressure]] bar",
+    "nl": "Waterdruk is !{{hoger|lager}} dan [[pressure]] bar",
     "sv": "Vattentrycket är !{{högre|lägre}} än [[pressure]] bar"
   },
   "args": [
@@ -18,6 +20,7 @@
       "type": "number",
       "title": {
         "en": "Pressure (bar)",
+        "nl": "Druk (bar)",
         "sv": "Tryck (bar)"
       },
       "min": 0,

@@ -9,10 +9,12 @@
   ],
   "name": {
     "en": "Grohe Sense",
+    "nl": "Grohe Sense",
     "sv": "Grohe Sense"
   },
   "description": {
     "en": "Detect leaks, track water usage, and safeguard your home.",
+    "nl": "Detecteer lekkages, volg het waterverbruik en bescherm uw huis.",
     "sv": "Upptäck läckor, följ din förbrukning och skydda ditt hem."
   },
   "category": [
@@ -35,6 +37,7 @@
       {
         "title": {
           "en": "Frost warning triggered",
+          "nl": "Vorstwaarschuwing geactiveerd",
           "sv": "Frostvarning utlöst"
         },
         "tokens": [
@@ -43,6 +46,7 @@
             "type": "number",
             "title": {
               "en": "Temperature (°C)",
+              "nl": "Temperatuur (°C)",
               "sv": "Temperatur (°C)"
             },
             "example": 2.5
@@ -60,6 +64,7 @@
       {
         "title": {
           "en": "Micro leak detected",
+          "nl": "Microlekkage gedetecteerd",
           "sv": "Mikroläckage upptäckt"
         },
         "args": [
@@ -74,6 +79,7 @@
       {
         "title": {
           "en": "Water leak alarm cleared",
+          "nl": "Waterlekkage alarm gereset",
           "sv": "Vattenläckagelarm återställt"
         },
         "args": [
@@ -88,6 +94,7 @@
       {
         "title": {
           "en": "Water leak detected",
+          "nl": "Waterlekkage gedetecteerd",
           "sv": "Ett vattenläckage detekterades"
         },
         "tokens": [
@@ -96,6 +103,7 @@
             "type": "string",
             "title": {
               "en": "Alarm Type",
+              "nl": "Alarmtype",
               "sv": "Larmtyp"
             },
             "example": "Pipe break"
@@ -105,9 +113,12 @@
             "type": "string",
             "title": {
               "en": "Description",
+              "nl": "Beschrijving",
               "sv": "Beskrivning"
             },
-            "example": "Pipe break - water has been SHUT OFF"
+            "example": {
+              "en": "Pipe break - water has been SHUT OFF"
+            }
           }
         ],
         "args": [
@@ -122,6 +133,7 @@
       {
         "title": {
           "en": "Water consumption today changed",
+          "nl": "Waterverbruik vandaag gewijzigd",
           "sv": "Dagens vattenförbrukning ändrades"
         },
         "tokens": [
@@ -130,6 +142,7 @@
             "type": "number",
             "title": {
               "en": "Water Today (l)",
+              "nl": "Water vandaag (l)",
               "sv": "Vattenförbrukning idag (l)"
             },
             "example": 142.5
@@ -147,6 +160,7 @@
       {
         "title": {
           "en": "Water pressure changed",
+          "nl": "Waterdruk is veranderd",
           "sv": "Vattentrycket ändrades"
         },
         "tokens": [
@@ -155,6 +169,7 @@
             "type": "number",
             "title": {
               "en": "Pressure (bar)",
+              "nl": "Druk (bar)",
               "sv": "Tryck (bar)"
             },
             "example": 3.4
@@ -172,6 +187,7 @@
       {
         "title": {
           "en": "Valve was closed",
+          "nl": "Klep werd gesloten",
           "sv": "Vattenventilen stängdes"
         },
         "args": [
@@ -186,6 +202,7 @@
       {
         "title": {
           "en": "Valve was opened",
+          "nl": "Klep werd geopend",
           "sv": "Vattenventilen öppnades"
         },
         "args": [
@@ -202,6 +219,7 @@
       {
         "title": {
           "en": "Frost warning is !{{active|not active}}",
+          "nl": "Vorstwaarschuwing is !{{active|niet actief}}",
           "sv": "Frostvarning är !{{aktiv|inte aktiv}}"
         },
         "args": [
@@ -216,6 +234,7 @@
       {
         "title": {
           "en": "Micro leak alarm is !{{active|not active}}",
+          "nl": "Mikrolekkagealarm is !{{actief|niet actief}}",
           "sv": "Mikroläckagelarm är !{{aktivt|inte aktivt}}"
         },
         "args": [
@@ -230,6 +249,7 @@
       {
         "title": {
           "en": "Water leak alarm is !{{active|not active}}",
+          "nl": "Waterlekkagealarm is !{{actief|niet actief}}",
           "sv": "Vattenläckagelarm är !{{aktivt|inte aktivt}}"
         },
         "args": [
@@ -244,10 +264,12 @@
       {
         "title": {
           "en": "Water pressure is !{{higher|lower}} than",
+          "nl": "Waterdruk is !{{hoger|lager}} dan",
           "sv": "Vattentrycket är !{{högre|lägre}} än"
         },
         "titleFormatted": {
           "en": "Water pressure is !{{higher|lower}} than [[pressure]] bar",
+          "nl": "Waterdruk is !{{hoger|lager}} dan [[pressure]] bar",
           "sv": "Vattentrycket är !{{högre|lägre}} än [[pressure]] bar"
         },
         "args": [
@@ -261,6 +283,7 @@
             "type": "number",
             "title": {
               "en": "Pressure (bar)",
+              "nl": "Druk (bar)",
               "sv": "Tryck (bar)"
             },
             "min": 0,
@@ -274,6 +297,7 @@
       {
         "title": {
           "en": "Valve is !{{open|closed}}",
+          "nl": "Klep is !{{open|gesloten}}",
           "sv": "Ventilen är !{{öppen|stängd}}"
         },
         "args": [
@@ -290,6 +314,7 @@
       {
         "title": {
           "en": "Close water valve",
+          "nl": "Sluit waterklep",
           "sv": "Stäng vattenventilen"
         },
         "args": [
@@ -304,6 +329,7 @@
       {
         "title": {
           "en": "Open water valve",
+          "nl": "Open waterklep",
           "sv": "Öppna vattenventilen"
         },
         "args": [
@@ -318,6 +344,7 @@
       {
         "title": {
           "en": "Refresh data from Grohe Cloud",
+          "nl": "Ververs gegevens van Grohe Cloud",
           "sv": "Uppdatera data från Grohe Cloud"
         },
         "args": [
@@ -332,10 +359,12 @@
       {
         "title": {
           "en": "Silence / Reset alarm",
+          "nl": "Alarm dempen / resetten",
           "sv": "Tysta / Återställ larm"
         },
         "titleFormatted": {
           "en": "Silence [[alarm_type]]",
+          "nl": "Demp [[alarm_type]]",
           "sv": "Tysta [[alarm_type]]"
         },
         "args": [
@@ -349,6 +378,7 @@
             "type": "dropdown",
             "title": {
               "en": "Alarm Type",
+              "nl": "Alarmtype",
               "sv": "Larmtyp"
             },
             "values": [
@@ -356,6 +386,7 @@
                 "id": "all",
                 "label": {
                   "en": "All active alarms",
+                  "nl": "Alle actieve alarmen",
                   "sv": "Alla aktiva larm"
                 }
               },
@@ -363,6 +394,7 @@
                 "id": "water",
                 "label": {
                   "en": "Water leak alarm",
+                  "nl": "Waterlekkagealarm",
                   "sv": "Vattenläckagelarm"
                 }
               },
@@ -370,6 +402,7 @@
                 "id": "micro_leak",
                 "label": {
                   "en": "Micro leak alarm",
+                  "nl": "Microlekkagealarm",
                   "sv": "Mikroläckagelarm"
                 }
               },
@@ -377,6 +410,7 @@
                 "id": "frost",
                 "label": {
                   "en": "Frost warning",
+                  "nl": "Vorstwaarschuwing",
                   "sv": "Frostvarning"
                 }
               }
@@ -388,6 +422,7 @@
       {
         "title": {
           "en": "Toggle water valve",
+          "nl": "Waterklep omzetten",
           "sv": "Växla vattenventil"
         },
         "args": [
@@ -405,6 +440,7 @@
     {
       "name": {
         "en": "Grohe Sense",
+        "nl": "Grohe Sense",
         "sv": "Grohe Sense"
       },
       "class": "sensor",
@@ -433,24 +469,28 @@
         "button_silence_alarm": {
           "title": {
             "en": "Silence Alarms",
+            "nl": "Alarmen dempen",
             "sv": "Tysta larm"
           }
         },
         "alarm_water": {
           "title": {
             "en": "Water Leak Alarm",
+            "nl": "Waterlekkagealarm",
             "sv": "Vattenläckagelarm"
           }
         },
         "measure_temperature": {
           "title": {
             "en": "Temperature",
+            "nl": "Temperatuur",
             "sv": "Temperatur"
           }
         },
         "measure_humidity": {
           "title": {
             "en": "Humidity",
+            "nl": "Luchtvochtigheid",
             "sv": "Luftfuktighet"
           }
         }
@@ -492,10 +532,12 @@
           "type": "number",
           "label": {
             "en": "Poll Interval (seconds)",
+            "nl": "Poll interval (seconden)",
             "sv": "Uppdateringsintervall (sekunder)"
           },
           "hint": {
             "en": "How often to poll status and measurements from Grohe Cloud (min: 60, default: 900)",
+            "nl": "Hoe vaak de status en metingen van Grohe Cloud moeten worden opgevraagd (min: 60, standaard: 900)",
             "sv": "Hur ofta status och mätvärden ska hämtas från Grohe Cloud (min: 60, standard: 900)"
           },
           "value": 900,
@@ -508,6 +550,7 @@
     {
       "name": {
         "en": "Grohe Sense Guard",
+        "nl": "Grohe Sense Guard",
         "sv": "Grohe Sense Guard"
       },
       "class": "sensor",
@@ -532,36 +575,43 @@
         "onoff": {
           "title": {
             "en": "Water Valve",
+            "nl": "Waterklep",
             "sv": "Vattenventil"
           },
           "insightsTitleTrue": {
             "en": "Valve open",
+            "nl": "Klep geopend",
             "sv": "Ventil öppen"
           },
           "insightsTitleFalse": {
             "en": "Valve closed",
+            "nl": "Klep gesloten",
             "sv": "Ventil stängd"
           }
         },
         "button_silence_alarm": {
           "title": {
             "en": "Silence Alarms",
+            "nl": "Alarmen dempen",
             "sv": "Tysta larm"
           }
         },
         "alarm_water": {
           "title": {
             "en": "Water Leak Alarm",
+            "nl": "Waterlekkagealarm",
             "sv": "Vattenläckagelarm"
           }
         },
         "measure_pressure": {
           "title": {
             "en": "Water Pressure",
+            "nl": "Waterdruk",
             "sv": "Vattentryck"
           },
           "units": {
             "en": "bar",
+            "nl": "bar",
             "sv": "bar"
           },
           "decimals": 2
@@ -569,6 +619,7 @@
         "measure_temperature": {
           "title": {
             "en": "Water Temperature",
+            "nl": "Watertemperatuur",
             "sv": "Vattentemperatur"
           }
         }
@@ -610,10 +661,12 @@
           "type": "number",
           "label": {
             "en": "Status Poll Interval (seconds)",
+            "nl": "Status poll interval (seconden)",
             "sv": "Uppdateringsintervall status (sekunder)"
           },
           "hint": {
             "en": "How often to poll valve status and alarms from Grohe Cloud (min: 30, default: 60)",
+            "nl": "Hoe vaak de status van de klep en alarmen van Grohe Cloud moet worden opgehaald (min: 30, standaard: 60)",
             "sv": "Hur ofta ventilstatus och larm ska hämtas från Grohe Cloud (min: 30, standard: 60)"
           },
           "value": 60,
@@ -625,10 +678,12 @@
           "type": "number",
           "label": {
             "en": "Measurements Poll Interval (seconds)",
+            "nl": "Meetwaarden poll interval (seconden)",
             "sv": "Uppdateringsintervall mätvärden (sekunder)"
           },
           "hint": {
             "en": "How often to poll pressure, temperature and consumption data (min: 60, default: 300)",
+            "nl": "Hoe vaak druk, temperatuur en verbruiksgegevens moeten worden opgevraagd (min: 60, standaard: 300)",
             "sv": "Hur ofta tryck, temperatur och förbrukningsdata ska hämtas (min: 60, standard: 300)"
           },
           "value": 300,
@@ -644,6 +699,7 @@
       "type": "boolean",
       "title": {
         "en": "Frost Warning",
+        "nl": "Vorstwaarschuwing",
         "sv": "Frostvarning"
       },
       "getable": true,
@@ -651,10 +707,12 @@
       "insights": true,
       "insightsTitleTrue": {
         "en": "Frost warning active",
+        "nl": "Vorstwaarschuwing actief",
         "sv": "Frostvarning aktiv"
       },
       "insightsTitleFalse": {
         "en": "No frost warning",
+        "nl": "Geen vorstwaarschuwing",
         "sv": "Ingen frostvarning"
       }
     },
@@ -662,6 +720,7 @@
       "type": "boolean",
       "title": {
         "en": "Micro Leak Alarm",
+        "nl": "Microlekkagealarm",
         "sv": "Mikroläckagelarm"
       },
       "getable": true,
@@ -669,10 +728,12 @@
       "insights": true,
       "insightsTitleTrue": {
         "en": "Micro leak detected",
+        "nl": "Microlekkage gedetecteerd",
         "sv": "Mikroläckage upptäckt"
       },
       "insightsTitleFalse": {
         "en": "No micro leak",
+        "nl": "Geen microlekkage",
         "sv": "Inget mikroläckage"
       }
     },
@@ -680,6 +741,7 @@
       "type": "boolean",
       "title": {
         "en": "Silence Alarms",
+        "nl": "Alarmen dempen",
         "sv": "Tysta larm"
       },
       "uiComponent": "button",
@@ -691,10 +753,12 @@
       "type": "number",
       "title": {
         "en": "Water Flow",
+        "nl": "Waterdoorstroming",
         "sv": "Vattenflöde"
       },
       "units": {
         "en": "l/min",
+        "nl": "l/min",
         "sv": "l/min"
       },
       "decimals": 2,
@@ -704,6 +768,7 @@
       "insights": true,
       "insightsTitleTrue": {
         "en": "Water Flow",
+        "nl": "Waterdoorstroming",
         "sv": "Vattenflöde"
       }
     },
@@ -711,10 +776,12 @@
       "type": "number",
       "title": {
         "en": "Water Today",
+        "nl": "Water vandaag",
         "sv": "Vattenförbrukning idag"
       },
       "units": {
         "en": "l",
+        "nl": "l",
         "sv": "l"
       },
       "decimals": 1,
@@ -724,6 +791,7 @@
       "insights": true,
       "insightsTitleTrue": {
         "en": "Water Today",
+        "nl": "Water vandaag",
         "sv": "Vattenförbrukning idag"
       }
     }

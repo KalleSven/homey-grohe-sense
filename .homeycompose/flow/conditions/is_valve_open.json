@@ -1,6 +1,7 @@
 {
   "title": {
     "en": "Valve is !{{open|closed}}",
+    "nl": "Klep is !{{open|gesloten}}",
     "sv": "Ventilen är !{{öppen|stängd}}"
   },
   "args": [

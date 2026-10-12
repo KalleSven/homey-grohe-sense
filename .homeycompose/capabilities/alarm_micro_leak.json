@@ -2,6 +2,7 @@
   "type": "boolean",
   "title": {
     "en": "Micro Leak Alarm",
+    "nl": "Microlekkagealarm",
     "sv": "Mikroläckagelarm"
   },
   "getable": true,
@@ -9,10 +10,12 @@
   "insights": true,
   "insightsTitleTrue": {
     "en": "Micro leak detected",
+    "nl": "Microlekkage gedetecteerd",
     "sv": "Mikroläckage upptäckt"
   },
   "insightsTitleFalse": {
     "en": "No micro leak",
+    "nl": "Geen microlekkage",
     "sv": "Inget mikroläckage"
   }
 }

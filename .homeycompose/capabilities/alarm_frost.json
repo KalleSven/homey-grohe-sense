@@ -2,6 +2,7 @@
   "type": "boolean",
   "title": {
     "en": "Frost Warning",
+    "nl": "Vorstwaarschuwing",
     "sv": "Frostvarning"
   },
   "getable": true,
@@ -9,10 +10,12 @@
   "insights": true,
   "insightsTitleTrue": {
     "en": "Frost warning active",
+    "nl": "Vorstwaarschuwing actief",
     "sv": "Frostvarning aktiv"
   },
   "insightsTitleFalse": {
     "en": "No frost warning",
+    "nl": "Geen vorstwaarschuwing",
     "sv": "Ingen frostvarning"
   }
 }

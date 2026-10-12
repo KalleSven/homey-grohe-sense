@@ -2,10 +2,12 @@
   "type": "number",
   "title": {
     "en": "Water Today",
+    "nl": "Water vandaag",
     "sv": "Vattenförbrukning idag"
   },
   "units": {
     "en": "l",
+    "nl": "l",
     "sv": "l"
   },
   "decimals": 1,
@@ -15,6 +17,7 @@
   "insights": true,
   "insightsTitleTrue": {
     "en": "Water Today",
+    "nl": "Water vandaag",
     "sv": "Vattenförbrukning idag"
   }
 }

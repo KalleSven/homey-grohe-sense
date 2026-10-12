@@ -1,6 +1,7 @@
 {
   "name": {
     "en": "Grohe Sense Guard",
+    "nl": "Grohe Sense Guard",
     "sv": "Grohe Sense Guard"
   },
   "class": "sensor",
@@ -25,36 +26,43 @@
     "onoff": {
       "title": {
         "en": "Water Valve",
+        "nl": "Waterklep",
         "sv": "Vattenventil"
       },
       "insightsTitleTrue": {
         "en": "Valve open",
+        "nl": "Klep geopend",
         "sv": "Ventil öppen"
       },
       "insightsTitleFalse": {
         "en": "Valve closed",
+        "nl": "Klep gesloten",
         "sv": "Ventil stängd"
       }
     },
     "button_silence_alarm": {
       "title": {
         "en": "Silence Alarms",
+        "nl": "Alarmen dempen",
         "sv": "Tysta larm"
       }
     },
     "alarm_water": {
       "title": {
         "en": "Water Leak Alarm",
+        "nl": "Waterlekkagealarm",
         "sv": "Vattenläckagelarm"
       }
     },
     "measure_pressure": {
       "title": {
         "en": "Water Pressure",
+        "nl": "Waterdruk",
         "sv": "Vattentryck"
       },
       "units": {
         "en": "bar",
+        "nl": "bar",
         "sv": "bar"
       },
       "decimals": 2
@@ -62,6 +70,7 @@
     "measure_temperature": {
       "title": {
         "en": "Water Temperature",
+        "nl": "Watertemperatuur",
         "sv": "Vattentemperatur"
       }
     }
@@ -109,10 +118,12 @@
       "type": "number",
       "label": {
         "en": "Status Poll Interval (seconds)",
+        "nl": "Status poll interval (seconden)",
         "sv": "Uppdateringsintervall status (sekunder)"
       },
       "hint": {
         "en": "How often to poll valve status and alarms from Grohe Cloud (min: 30, default: 60)",
+        "nl": "Hoe vaak de status van de klep en alarmen van Grohe Cloud moet worden opgehaald (min: 30, standaard: 60)",
         "sv": "Hur ofta ventilstatus och larm ska hämtas från Grohe Cloud (min: 30, standard: 60)"
       },
       "value": 60,
@@ -124,10 +135,12 @@
       "type": "number",
       "label": {
         "en": "Measurements Poll Interval (seconds)",
+        "nl": "Meetwaarden poll interval (seconden)",
         "sv": "Uppdateringsintervall mätvärden (sekunder)"
       },
       "hint": {
         "en": "How often to poll pressure, temperature and consumption data (min: 60, default: 300)",
+        "nl": "Hoe vaak druk, temperatuur en verbruiksgegevens moeten worden opgevraagd (min: 60, standaard: 300)",
         "sv": "Hur ofta tryck, temperatur och förbrukningsdata ska hämtas (min: 60, standard: 300)"
       },
       "value": 300,

@@ -1,6 +1,7 @@
 {
   "name": {
     "en": "Grohe Sense",
+    "nl": "Grohe Sense",
     "sv": "Grohe Sense"
   },
   "class": "sensor",
@@ -29,24 +30,28 @@
     "button_silence_alarm": {
       "title": {
         "en": "Silence Alarms",
+        "nl": "Alarmen dempen",
         "sv": "Tysta larm"
       }
     },
     "alarm_water": {
       "title": {
         "en": "Water Leak Alarm",
+        "nl": "Waterlekkagealarm",
         "sv": "Vattenläckagelarm"
       }
     },
     "measure_temperature": {
       "title": {
         "en": "Temperature",
+        "nl": "Temperatuur",
         "sv": "Temperatur"
       }
     },
     "measure_humidity": {
       "title": {
         "en": "Humidity",
+        "nl": "Luchtvochtigheid",
         "sv": "Luftfuktighet"
       }
     }
@@ -94,10 +99,12 @@
       "type": "number",
       "label": {
         "en": "Poll Interval (seconds)",
+        "nl": "Poll interval (seconden)",
         "sv": "Uppdateringsintervall (sekunder)"
       },
       "hint": {
         "en": "How often to poll status and measurements from Grohe Cloud (min: 60, default: 900)",
+        "nl": "Hoe vaak de status en metingen van Grohe Cloud moeten worden opgevraagd (min: 60, standaard: 900)",
         "sv": "Hur ofta status och mätvärden ska hämtas från Grohe Cloud (min: 60, standard: 900)"
       },
       "value": 900,

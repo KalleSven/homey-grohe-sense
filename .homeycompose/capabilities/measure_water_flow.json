@@ -2,10 +2,12 @@
   "type": "number",
   "title": {
     "en": "Water Flow",
+    "nl": "Waterdoorstroming",
     "sv": "Vattenflöde"
   },
   "units": {
     "en": "l/min",
+    "nl": "l/min",
     "sv": "l/min"
   },
   "decimals": 2,
@@ -15,6 +17,7 @@
   "insights": true,
   "insightsTitleTrue": {
     "en": "Water Flow",
+    "nl": "Waterdoorstroming",
     "sv": "Vattenflöde"
   }
 }

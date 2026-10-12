@@ -1,6 +1,7 @@
 {
   "title": {
     "en": "Frost warning triggered",
+    "nl": "Vorstwaarschuwing geactiveerd",
     "sv": "Frostvarning utlöst"
   },
   "tokens": [
@@ -9,6 +10,7 @@
       "type": "number",
       "title": {
         "en": "Temperature (°C)",
+        "nl": "Temperatuur (°C)",
         "sv": "Temperatur (°C)"
       },
       "example": 2.5
